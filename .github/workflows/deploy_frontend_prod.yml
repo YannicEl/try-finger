@@ -1,0 +1,35 @@
+name: Deploy Frontend PROD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  deploy_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.1
+        with:
+          version: latest
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+          cache-dependency-path: frontend/pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: cd frontend/; pnpm i
+
+      - name: Deploy
+        run: cd frontend/; pnpm run deploy:prod
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

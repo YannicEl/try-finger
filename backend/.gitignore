@@ -1,0 +1,18 @@
+# Compiled JavaScript files
+**/*.js
+**/*.js.map
+
+# Except the ESLint config file
+!.eslintrc.js
+
+# Node.js dependency directory
+node_modules/
+
+# functions build
+lib/
+
+# IDEA FOLDER YEEEET
+.idea/
+
+# firebase logs
+firebase-debug.log

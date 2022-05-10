@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "dev": "try-finger-dev",
+    "prod": "try-finger-dev"
+  }
+}

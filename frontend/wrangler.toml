@@ -1,0 +1,15 @@
+compatibility_date = "2022-05-10"
+main = ".output/server/index.mjs"
+
+[site]
+bucket = ".output/public"
+
+[build]
+command = "npm run build"
+
+[env.dev]
+name = "try_finger_dev"
+
+[env.prod]
+name = "try_finger_prod"
+route = "try-finger.yannic.at/*"

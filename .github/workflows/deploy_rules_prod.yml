@@ -1,0 +1,23 @@
+name: deploy_rules_prod
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'firestore.indexes.json'
+      - 'firestore.rules'
+      - 'storage.rules'
+
+jobs:
+  deploy_rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy
+        uses: w9jds/firebase-action@v2.0.0
+        with:
+          args: deploy --only storage,firestore --project prod
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
