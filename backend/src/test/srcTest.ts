@@ -1,7 +1,6 @@
-import { logger, Response } from 'firebase-functions';
-import { Request } from 'firebase-functions/lib/providers/https';
+import { logger, Response, Request } from 'firebase-functions';
 
-export async function handler(req: Request, res: Response) {
+export const handler = async (req: Request, res: Response) => {
 	logger.log(req.body);
 
 	try {
@@ -12,4 +11,4 @@ export async function handler(req: Request, res: Response) {
 		res.sendStatus(400);
 		return;
 	}
-}
+};

@@ -2,16 +2,16 @@ lockfileVersion: 5.4
 
 specifiers:
   firebase-admin: ^10.2.0
-  firebase-functions: 3.21.0
-  firebase-tools: 10.8.0
+  firebase-functions: 3.21.1
+  firebase-tools: 10.9.2
   typescript: 4.6.4
 
 dependencies:
   firebase-admin: 10.2.0
-  firebase-functions: 3.21.0_firebase-admin@10.2.0
+  firebase-functions: 3.21.1_firebase-admin@10.2.0
 
 devDependencies:
-  firebase-tools: 10.8.0
+  firebase-tools: 10.9.2
   typescript: 4.6.4
 
 packages:
@@ -1793,14 +1793,17 @@ packages:
       - supports-color
     dev: false
 
-  /firebase-frameworks/0.3.0:
-    resolution: {integrity: sha512-Zxtx5WsD8ZZdItIeDjjpM+JgaIWDdwBujmLYLKf2Ou6onyRsd8bNRrnVsqrnq4S3FN9TcNYliXdwMu7AwYdW7Q==}
+  /firebase-frameworks/0.4.2:
+    resolution: {integrity: sha512-a3xNE3wPh8JWq2WOgWlSypVS9O/y/3/3Im9EV7bNBF44wFV2oOAyFdVgDk6it81+lBRv7ci8PttgQZohtsFeVA==}
     dependencies:
+      fs-extra: 10.1.0
+      jsonc-parser: 3.0.0
+      semver: 7.3.7
       tslib: 2.4.0
     dev: true
 
-  /firebase-functions/3.21.0_firebase-admin@10.2.0:
-    resolution: {integrity: sha512-Xl0EFV05+RSB9hJHlo12LguoRqAmpSXmBnpI0MANeNj07dGW0QCWPHtaAewxYEzRS3RfSCL8WH12rjvo0PPKGw==}
+  /firebase-functions/3.21.1_firebase-admin@10.2.0:
+    resolution: {integrity: sha512-wUxJaUEceGpCxa+uAYTQUGM13Uc/mekWfJnhuqqPKr8S09WosoVRpoh1yVQO+AnMqNChq3psLkLxHPubW9Tg2A==}
     engines: {node: ^8.13.0 || >=10.10.0}
     hasBin: true
     peerDependencies:
@@ -1818,8 +1821,8 @@ packages:
       - supports-color
     dev: false
 
-  /firebase-tools/10.8.0:
-    resolution: {integrity: sha512-A4yp73VYh9iKEBH59mBbC9BgQdIiYsr3MP28g1sD2bmGtU50NU9o7Ygdnmf5zmWvGhpIGtTue1wLjYOwvi/9+g==}
+  /firebase-tools/10.9.2:
+    resolution: {integrity: sha512-oH5AV7mnoIhVsgFT5QI/HeMh7bfpbr60Siw0tbD5FB4xtaqYyyPC42W6/unbLMxlM6qNH3rHe1+PZmU2z7NeWA==}
     engines: {node: '>= 12'}
     hasBin: true
     dependencies:
@@ -1844,7 +1847,7 @@ packages:
       exit-code: 1.0.2
       express: 4.18.1
       filesize: 6.4.0
-      firebase-frameworks: 0.3.0
+      firebase-frameworks: 0.4.2
       fs-extra: 5.0.0
       glob: 7.2.0
       google-auth-library: 7.14.1
@@ -1918,6 +1921,15 @@ packages:
 
   /fs-constants/1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
+    dev: true
+
+  /fs-extra/10.1.0:
+    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.10
+      jsonfile: 6.1.0
+      universalify: 2.0.0
     dev: true
 
   /fs-extra/5.0.0:
@@ -2636,8 +2648,20 @@ packages:
     resolution: {integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=}
     dev: true
 
+  /jsonc-parser/3.0.0:
+    resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
+    dev: true
+
   /jsonfile/4.0.0:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=}
+    optionalDependencies:
+      graceful-fs: 4.2.10
+    dev: true
+
+  /jsonfile/6.1.0:
+    resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+    dependencies:
+      universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.10
     dev: true
@@ -4316,6 +4340,11 @@ packages:
   /universalify/0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
+    dev: true
+
+  /universalify/2.0.0:
+    resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
+    engines: {node: '>= 10.0.0'}
     dev: true
 
   /unpipe/1.0.0:

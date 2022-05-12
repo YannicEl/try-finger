@@ -16,3 +16,4 @@ lib/
 
 # firebase logs
 firebase-debug.log
+.pnpm-debug.log
