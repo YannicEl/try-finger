@@ -17,5 +17,5 @@ PROD: [https://try-finger.yannic.at/](https://try-finger.yannic.at/)
 
 ## Firebase rules deploy
 
-![Deploy Firebase Rules DEV](https://github.com/YannicEl/try-finger/actions/workflows/deploy_rules_dev.yml/badge.svg)
+![Deploy Firebase Rules DEV](https://github.com/YannicEl/try-finger/actions/workflows/deploy_rules_dev.yml/badge.svg)  
 ![Deploy Firebase Rules PROD](https://github.com/YannicEl/try-finger/actions/workflows/deploy_rules_prod.yml/badge.svg)
