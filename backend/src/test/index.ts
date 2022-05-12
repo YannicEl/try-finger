@@ -1,10 +1,6 @@
-import { region } from 'firebase-functions';
+import { onRequest } from 'firebase-functions/v2/https';
 import { handler } from './srcTest.js';
 
-export const createFunction = () => {
-	return region('europe-west1').https;
-};
-
 export const test = {
-	test: createFunction().onRequest(handler),
+	test: onRequest({ region: 'europe-west1' }, handler),
 };

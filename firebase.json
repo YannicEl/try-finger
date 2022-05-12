@@ -5,7 +5,8 @@
 	},
 	"hosting": [],
 	"functions": {
-		"source": "backend"
+		"source": "backend",
+		"runtime": "nodejs16"
 	},
 	"storage": {
 		"rules": "storage.rules"
