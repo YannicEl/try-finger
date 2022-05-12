@@ -8,19 +8,19 @@ specifiers:
   nuxt: 3.0.0-rc.3
   nuxt-windicss: ^2.3.1
   sass: ^1.51.0
-  wrangler: ^2.0.2
+  wrangler: ^2.0.3
 
 dependencies:
   '@vueuse/nuxt': 8.4.2
   firebase: 9.8.1
 
 devDependencies:
-  '@iconify/json': 2.1.40
+  '@iconify/json': 2.1.41
   '@unocss/nuxt': 0.33.2
   nuxt: 3.0.0-rc.3_sass@1.51.0
   nuxt-windicss: 2.3.1
   sass: 1.51.0
-  wrangler: 2.0.2
+  wrangler: 2.0.3
 
 packages:
 
@@ -817,8 +817,8 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
-  /@iconify/json/2.1.40:
-    resolution: {integrity: sha512-2G5zYwr4Fl9jQpjzmd+j/+u81pmvJ6SkxVjk+Al1UM4EyE+ByuODHSE2Srp85cEiM9v4YAzkkgVSkleufgPLeQ==}
+  /@iconify/json/2.1.41:
+    resolution: {integrity: sha512-EO7/zC21tZLgFiNMR2CcOvko6HWHH8np9ao7bkHtJUvUR011fQWXH2dJNFUHoyTA+S+knJY7v9H9vZ3QAQGcrA==}
     dependencies:
       '@iconify/types': 1.1.0
       pathe: 0.2.0
@@ -6494,8 +6494,8 @@ packages:
     hasBin: true
     dev: true
 
-  /wrangler/2.0.2:
-    resolution: {integrity: sha512-K9e6W4FKgy1dh4xX9/XJaQwqz6Ta6HQKpm1KCi1B0G60rnpSGKZskGSHZUX4i5S+21jx+/0oucwZc5cdv+/cSw==}
+  /wrangler/2.0.3:
+    resolution: {integrity: sha512-cMmL94sAb2M8Tku9VaBOF5L7rN2uWA9/2aQOkYjR0ox6tsQEGIJz6ReZ8s5laJP457xHzHdc20/hjPqhfj9G/w==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:
