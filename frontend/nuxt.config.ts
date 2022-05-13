@@ -2,7 +2,14 @@ import { defineNuxtConfig } from 'nuxt';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-	buildModules: ['nuxt-windicss', '@unocss/nuxt', '@vueuse/nuxt', '@pinia/nuxt'],
+	// temp fix https://github.com/nuxt/framework/issues/4325#issuecomment-1113412227
+	alias: {
+		'@vue/devtools-api': '@vue/devtools-api',
+	},
+
+	modules: ['@pinia/nuxt'],
+
+	buildModules: ['nuxt-windicss', '@unocss/nuxt', '@vueuse/nuxt'],
 
 	runtimeConfig: {
 		public: {
