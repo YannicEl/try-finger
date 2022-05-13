@@ -1,5 +1,5 @@
 <template>
-	<div class="container grid place-items-center">
+	<div class="grid place-items-center bg-gradient-to-br from-green-500 to-blue-500">
 		<div class="text-5xl font-semibold text-white">Try Finger</div>
 		<div class="mt-4 text-2xl font-semibold text-white italic">But Hole</div>
 
