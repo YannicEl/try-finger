@@ -10,14 +10,16 @@
 	"devDependencies": {
 		"@iconify/json": "latest",
 		"@unocss/nuxt": "^0.33.2",
-		"nuxt-windicss": "^2.3.1",
 		"nuxt": "3.0.0-rc.3",
+		"nuxt-windicss": "^2.3.1",
 		"sass": "^1.51.0",
 		"wrangler": "^2.0.3"
 	},
 	"dependencies": {
+		"@pinia/nuxt": "^0.1.9",
 		"@vueuse/nuxt": "^8.4.2",
-		"firebase": "^9.8.1"
+		"firebase": "^9.8.1",
+		"pinia": "^2.0.14"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
