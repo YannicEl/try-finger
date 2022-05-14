@@ -12,16 +12,7 @@ export interface State {
 export const useStore = defineStore('main', {
 	state: (): State => {
 		return {
-			listItems: [
-				{
-					title: 'Title 1',
-					text: 'Text 1',
-				},
-				{
-					title: 'Title 2',
-					text: 'Text 2',
-				},
-			],
+			listItems: [],
 		};
 	},
 	getters: {},
