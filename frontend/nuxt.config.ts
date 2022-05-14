@@ -7,9 +7,9 @@ export default defineNuxtConfig({
 		'@vue/devtools-api': '@vue/devtools-api',
 	},
 
-	modules: ['@pinia/nuxt'],
+	modules: [],
 
-	buildModules: ['nuxt-windicss', '@unocss/nuxt', '@vueuse/nuxt'],
+	buildModules: ['nuxt-windicss', '@unocss/nuxt', '@vueuse/nuxt', '@pinia/nuxt'],
 
 	runtimeConfig: {
 		public: {

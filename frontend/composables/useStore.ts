@@ -5,8 +5,12 @@ export interface ListItem {
 	text: string;
 }
 
+export interface State {
+	listItems: ListItem[];
+}
+
 export const useStore = defineStore('main', {
-	state: () => {
+	state: (): State => {
 		return {
 			listItems: [
 				{
