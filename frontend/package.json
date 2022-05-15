@@ -9,11 +9,11 @@
 	},
 	"devDependencies": {
 		"@iconify/json": "latest",
-		"@unocss/nuxt": "^0.33.2",
+		"@unocss/nuxt": "^0.33.4",
 		"nuxt": "3.0.0-rc.3",
 		"nuxt-windicss": "^2.3.1",
 		"sass": "^1.51.0",
-		"wrangler": "^2.0.3"
+		"wrangler": "^2.0.5"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^0.1.9",
