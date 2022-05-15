@@ -1,6 +1,6 @@
 import { BaseDoc } from './BaseDoc';
 
-export interface RoomDoc extends BaseDoc {
+export interface Room extends BaseDoc {
 	name: string;
 	members: string[];
 }

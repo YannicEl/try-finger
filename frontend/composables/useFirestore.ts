@@ -1,5 +1,4 @@
 import {
-	FirestoreDataConverter,
 	getFirestore,
 	addDoc,
 	collection as _collection,
@@ -11,38 +10,66 @@ import {
 	getDocs,
 	QueryConstraint,
 	query,
+	QueryDocumentSnapshot,
+	WithFieldValue,
+	FirestoreDataConverter,
+	DocumentData,
+	updateDoc,
+	UpdateData,
 } from 'firebase/firestore';
 import { Ref } from 'vue';
-import { Document } from '~/types/Documents';
+import { BaseDoc } from '~~/types/BaseDoc';
 
 export type Collections = 'rooms' | 'users' | `${string}/messages`;
 
-export const useFirestore = <T extends Document>(
-	path: Collections,
-	converter: FirestoreDataConverter<T>
-) => {
+export const useFirestore = <T extends BaseDoc>(path: Collections) => {
+	const converter: FirestoreDataConverter<T> = {
+		toFirestore: (e: WithFieldValue<T>): DocumentData => e,
+		fromFirestore: (snapshot: QueryDocumentSnapshot<DocumentData>): T => {
+			const { createdAt, updatedAt, ...rest } = snapshot.data({
+				serverTimestamps: 'estimate',
+			});
+
+			return {
+				id: snapshot.id,
+				createdAt: createdAt.toDate(),
+				updatedAt: updatedAt.toDate(),
+				...rest,
+			} as T;
+		},
+	};
+
 	const db = getFirestore(useFirebase());
 	const collection = _collection(db, path).withConverter(converter);
 
-	const add = (body: Partial<Omit<T, 'id'>>): Promise<DocumentReference<T>> => {
-		console.log(body);
-
+	const add = (
+		body: Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>
+	): Promise<DocumentReference<T>> => {
 		return addDoc<T>(collection, {
 			...body,
 			createdAt: serverTimestamp(),
 			updatedAt: serverTimestamp(),
-		} as any);
+		} as WithFieldValue<T>);
+	};
+
+	const update = (
+		id: string,
+		body: Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>
+	): Promise<void> => {
+		return updateDoc<T>(doc(collection, id), {
+			...body,
+			updatedAt: serverTimestamp(),
+		} as UpdateData<T>);
 	};
 
 	const get = async (id: string): Promise<T | undefined> => {
-		return getDoc(doc(collection, id)).then((e) => e.data());
+		return getDoc(doc(collection, id)).then((e) => e?.data());
 	};
 
 	const getRef = (id: string): Ref<T | undefined> => {
 		const docData = ref<T>();
-
 		onSnapshot(doc(collection, id), (doc) => {
-			docData.value = doc.data();
+			docData.value = doc?.data();
 		});
 		return docData;
 	};
@@ -61,5 +88,5 @@ export const useFirestore = <T extends Document>(
 		return collectionData;
 	};
 
-	return { add, get, getRef, list, listRef };
+	return { add, update, get, getRef, list, listRef };
 };

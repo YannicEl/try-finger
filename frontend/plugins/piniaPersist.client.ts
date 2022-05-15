@@ -4,7 +4,19 @@ const PERSIST_KEY = 'piniaState';
 
 const getItem = (key: string) => {
 	const found = localStorage.getItem(key);
-	return found ? JSON.parse(found) : null;
+
+	// state has not peen persisted
+	if (!found) return null;
+
+	return JSON.parse(found, (key, value) => {
+		const { createdAt, updatedAt } = value;
+
+		// convert ISO date strings into Date objects
+		if (createdAt) value.createdAt = new Date(createdAt);
+		if (updatedAt) value.updatedAt = new Date(updatedAt);
+
+		return value;
+	});
 };
 
 const setItem = (key: string, value: Object) => {

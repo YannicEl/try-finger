@@ -1,5 +1,5 @@
 import { BaseDoc } from './BaseDoc';
 
-export interface MessageDoc extends BaseDoc {
+export interface Message extends BaseDoc {
 	sender: string;
 }
