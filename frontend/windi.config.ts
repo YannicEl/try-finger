@@ -13,6 +13,9 @@ export default defineConfig({
 		fontFamily: {
 			sans: ['Montserrat', 'sans-serif'],
 		},
+		cursor: {
+			'col-resize': 'col-resize',
+		},
 	},
 	plugins: [forms, aspectRatio],
 	safelist: [],
