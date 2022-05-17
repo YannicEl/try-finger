@@ -26,12 +26,15 @@ const setItem = (key: string, value: Object) => {
 export default defineNuxtPlugin((nuxtApp) => {
 	const pinia: Pinia = nuxtApp.$pinia;
 
-	const restoredState = getItem(PERSIST_KEY);
-	if (restoredState) {
-		pinia.state.value = restoredState;
-	} else {
-		setItem(PERSIST_KEY, pinia.state.value);
-	}
+	// recover state after app is mounted to prevent hydration errors
+	nuxtApp.hook('app:mounted', () => {
+		const restoredState = getItem(PERSIST_KEY);
+		if (restoredState) {
+			useStore().$state = restoredState.main;
+		} else {
+			setItem(PERSIST_KEY, pinia.state.value);
+		}
+	});
 
 	const plugin: PiniaPlugin = ({ store, pinia }) => {
 		store.$subscribe(() => {

@@ -12,7 +12,9 @@
 </template>
 
 <script setup lang="ts">
-const { listItems } = useStore();
+import { storeToRefs } from 'pinia';
+
+const { listItems } = storeToRefs(useStore());
 </script>
 
 <style scoped lang="scss"></style>
