@@ -1,5 +1,5 @@
 <template>
-	<div :style="{ width: width + 'px' }">
+	<div class="relative" :style="{ width: width + 'px' }">
 		<div
 			class="absolute -right-2 top-0 bottom-0 w-4 cursor-col-resize z-10"
 			@mousedown="mousedown"
