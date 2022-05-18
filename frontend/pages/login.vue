@@ -2,13 +2,8 @@
 	<div class="flex-1 grid place-items-center bg-hex-12110f">
 		<form @submit.prevent="submit" class="grid gap-4 place-items-center">
 			<div class="text-hex-d4d4d3 text-shadow-lg font-bold text-4xl tracking-widest">
-				Register
+				Login
 			</div>
-
-			<label for="username">
-				<span>username</span>
-				<input type="text" name="username" id="username" v-model.trim="form.username" />
-			</label>
 
 			<label for="email">
 				<span>email</span>
@@ -37,11 +32,11 @@
 				<button
 					class="py-2 px-8 border border-white rounded-sm shadow-md shadow-white/30"
 				>
-					Create an Account
+					Login
 				</button>
 			</div>
 
-			<NuxtLink to="login">Already have an account?</NuxtLink>
+			<NuxtLink to="register">Don't have an account?</NuxtLink>
 		</form>
 	</div>
 </template>
@@ -52,7 +47,6 @@ definePageMeta({
 });
 
 const form = {
-	username: '',
 	email: '',
 	password: '',
 };
@@ -64,8 +58,8 @@ const submit = async () => {
 
 	console.log(form);
 
-	const { username, email, password } = form;
-	await auth.register(username, email, password);
+	const { email, password } = form;
+	await auth.login(email, password);
 };
 
 const loginAsGuest = async () => {
