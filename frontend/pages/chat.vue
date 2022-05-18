@@ -1,8 +1,10 @@
 <template>
-	<div class="grid place-items-center">
-		<SpinnerDots />
-		<button @click="add">add</button>
-	</div>
+	<NuxtLayout>
+		<div class="grid place-items-center">
+			<SpinnerDots />
+			<button @click="add">add</button>
+		</div>
+	</NuxtLayout>
 </template>
 
 <script setup lang="ts">

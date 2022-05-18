@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 			// fonts
 			{
 				rel: 'stylesheet',
-				href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap',
+				href: 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300..900&display=swap',
 			},
 			{
 				rel: 'preconnect',
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
 			},
 			{
 				rel: 'preconnect',
-				href: 'https://fonts.gstatic.com/',
+				href: 'https://fonts.gstatic.com',
 				crossorigin: true,
 			},
 		],

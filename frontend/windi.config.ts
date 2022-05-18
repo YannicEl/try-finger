@@ -11,7 +11,8 @@ export default defineConfig({
 		},
 		container: {},
 		fontFamily: {
-			sans: ['Montserrat', 'sans-serif'],
+			// sans: ['Montserrat', 'sans-serif'],
+			serif: ['EB Garamond', 'serif'],
 		},
 		cursor: {
 			'col-resize': 'col-resize',
