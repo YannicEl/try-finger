@@ -821,7 +821,7 @@ packages:
     dev: true
 
   /bytes/3.0.0:
-    resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
+    resolution: {integrity: sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=}
     engines: {node: '>= 0.8'}
     dev: true
 
@@ -2911,7 +2911,7 @@ packages:
     resolution: {integrity: sha512-+cKTOx9P4l7HwINYhzbrBSyzgxO2HaHKGZGuB1orZsMIgXYaJyfidT81VXRdpelW/PcHEWxywscePVgI/oUF6g==}
     engines: {node: '>=14.13.1 || >=16.0.0'}
     peerDependencies:
-      marked: ^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0 || 4
+      marked: ^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0
     dependencies:
       ansi-escapes: 5.0.0
       cardinal: 2.1.1
