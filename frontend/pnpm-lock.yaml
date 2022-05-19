@@ -10,7 +10,7 @@ specifiers:
   nuxt-windicss: ^2.3.1
   pinia: ^2.0.14
   sass: ^1.51.0
-  wrangler: ^2.0.5
+  wrangler: ^2.0.6
 
 dependencies:
   '@pinia/nuxt': 0.1.9_pinia@2.0.14
@@ -19,12 +19,12 @@ dependencies:
   pinia: 2.0.14
 
 devDependencies:
-  '@iconify/json': 2.1.44
+  '@iconify/json': 2.1.46
   '@unocss/nuxt': 0.33.5
   nuxt: 3.0.0-rc.3_sass@1.51.0
   nuxt-windicss: 2.3.1
   sass: 1.51.0
-  wrangler: 2.0.5
+  wrangler: 2.0.6
 
 packages:
 
@@ -821,8 +821,8 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
-  /@iconify/json/2.1.44:
-    resolution: {integrity: sha512-kvkrdHVwUeByyZiFFDuLh0ZvcmRNi23EbFg9yVzIUktoZplSp3N1feA5US90M9+qqoPcMtARCahwNNGJxFzcUA==}
+  /@iconify/json/2.1.46:
+    resolution: {integrity: sha512-aHVHbpN+02ILMI5JN8ZuEaRHeA/kuy+w9wcLNhRT0Pr6DGRZuKXDNoX2O6rZ9tNiN4SPKjsYNxwijAIFKr+JGA==}
     dependencies:
       '@iconify/types': 1.1.0
       pathe: 0.2.0
@@ -6527,8 +6527,8 @@ packages:
     hasBin: true
     dev: true
 
-  /wrangler/2.0.5:
-    resolution: {integrity: sha512-0BVKQDGm9whPrzLPACGJ9CGdk/taKYYIEvnjLSVOBOxa8her6R9VcmGP6U0wXQnvMasQqlmj+NnjNWgfRw8nIQ==}
+  /wrangler/2.0.6:
+    resolution: {integrity: sha512-LO3iTWZCPY5cWg5Ocx0j3awchBAfJtHTa21MFv0/m/AJC5FdATvH/agZ100dkOaF3/qmQVFsMI3EDx9/PiRjmg==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:
