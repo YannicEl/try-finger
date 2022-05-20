@@ -9,10 +9,10 @@
 	},
 	"devDependencies": {
 		"@iconify/json": "latest",
-		"@unocss/nuxt": "^0.33.5",
+		"@unocss/nuxt": "^0.34.0",
 		"nuxt": "3.0.0-rc.3",
 		"nuxt-windicss": "^2.3.1",
-		"sass": "^1.51.0",
+		"sass": "^1.52.0",
 		"wrangler": "^2.0.6"
 	},
 	"dependencies": {
