@@ -1,13 +1,15 @@
 <template>
-	<!-- left column -->
-	<Resizable class="w-120 border-r border-gray-200 flex flex-col">
-		<Menu class="border-b border-gray-200 h-16" />
+	<div class="flex flex-1">
+		<!-- left column -->
+		<Resizable class="w-120 border-r border-gray-200 flex flex-col">
+			<Menu class="border-b border-gray-200 h-16" />
 
-		<ListView class="flex-1" />
-	</Resizable>
+			<ListView class="flex-1" />
+		</Resizable>
 
-	<!-- right column -->
-	<div class="flex-1 grid">
-		<slot></slot>
+		<!-- right column -->
+		<div class="flex-1 grid">
+			<slot></slot>
+		</div>
 	</div>
 </template>

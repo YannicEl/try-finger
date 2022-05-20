@@ -26,22 +26,14 @@
 			</label>
 
 			<div class="flex">
-				<button
-					type="button"
-					class="py-2 px-8 border border-white rounded-sm shadow-md shadow-white/30"
-					@click="loginAsGuest"
-				>
+				<button btn secondary type="button" @click="loginAsGuest">
 					Continue as guest
 				</button>
 
-				<button
-					class="py-2 px-8 border border-white rounded-sm shadow-md shadow-white/30"
-				>
-					Create an Account
-				</button>
+				<button btn primary>Create an Account</button>
 			</div>
 
-			<NuxtLink to="login">Already have an account?</NuxtLink>
+			<NuxtLink btn secondary to="login">Already have an account?</NuxtLink>
 		</form>
 	</div>
 </template>

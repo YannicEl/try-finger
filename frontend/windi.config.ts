@@ -12,7 +12,7 @@ export default defineConfig({
 		container: {},
 		fontFamily: {
 			// sans: ['Montserrat', 'sans-serif'],
-			serif: ['EB Garamond', 'serif'],
+			serif: ['STIX Two Text', 'serif'],
 		},
 		cursor: {
 			'col-resize': 'col-resize',

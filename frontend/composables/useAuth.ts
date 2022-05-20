@@ -11,7 +11,7 @@ import {
 export const useAuth = () => {
 	const auth = getAuth(useFirebase());
 
-	onAuthStateChanged(auth, (user) => {
+	onAuthStateChanged(auth, async (user) => {
 		console.log('user:', user);
 	});
 
@@ -25,8 +25,7 @@ export const useAuth = () => {
 	};
 
 	const login = async (email: string, password: string): Promise<UserCredential> => {
-		const res = await signInWithEmailAndPassword(auth, email, password);
-		return res;
+		return signInWithEmailAndPassword(auth, email, password);
 	};
 
 	const loginAsGuest = async (): Promise<UserCredential | null> => {

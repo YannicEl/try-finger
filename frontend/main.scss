@@ -1,7 +1,37 @@
 html {
 	@apply bg-gray-100 font-serif;
+	color: #d1d0d0;
 }
 
 #__nuxt {
 	@apply w-screen h-screen grid place-items-center;
+}
+
+a[btn],
+button[btn] {
+	$light-glow: 0px 0px 4px #757573, inset 0px 0px 10px #757573;
+	$heavey-glow: 0px 0px 16px #9c9b8e, inset 0px 0px 45px #9c9b8e;
+
+	@apply transition-all duration-300 text-md;
+
+	text-shadow: 2px 2px 3px #000000;
+	padding: 5px 2.5rem;
+	border-radius: 2px;
+
+
+	&[primary] {
+		background: #191915;
+		box-shadow: 0px 0px 4px #757573, inset 0px 0px 10px #757573;
+		border: 2px solid #757573;
+
+		&:hover {
+			box-shadow: 0px 0px 16px #9c9b8e, inset 0px 0px 45px #9c9b8e;
+		}
+	}
+
+	&[secondary] {
+		&:hover {
+			box-shadow: 0px 0px 4px #757573, inset 0px 0px 10px #757573;
+		}
+	}
 }
