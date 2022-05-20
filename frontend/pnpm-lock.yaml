@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@iconify/json': latest
   '@pinia/nuxt': ^0.1.9
   '@unocss/nuxt': ^0.34.0
   '@vueuse/nuxt': ^8.5.0
@@ -19,7 +18,6 @@ dependencies:
   pinia: 2.0.14
 
 devDependencies:
-  '@iconify/json': 2.1.46
   '@unocss/nuxt': 0.34.0
   nuxt: 3.0.0-rc.3_sass@1.52.0
   nuxt-windicss: 2.3.1
@@ -819,13 +817,6 @@ packages:
 
   /@iarna/toml/2.2.5:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
-    dev: true
-
-  /@iconify/json/2.1.46:
-    resolution: {integrity: sha512-aHVHbpN+02ILMI5JN8ZuEaRHeA/kuy+w9wcLNhRT0Pr6DGRZuKXDNoX2O6rZ9tNiN4SPKjsYNxwijAIFKr+JGA==}
-    dependencies:
-      '@iconify/types': 1.1.0
-      pathe: 0.2.0
     dev: true
 
   /@iconify/types/1.1.0:

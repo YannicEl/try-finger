@@ -8,7 +8,6 @@
 		"deploy:prod": "wrangler publish --env prod"
 	},
 	"devDependencies": {
-		"@iconify/json": "latest",
 		"@unocss/nuxt": "^0.34.0",
 		"nuxt": "3.0.0-rc.3",
 		"nuxt-windicss": "^2.3.1",
