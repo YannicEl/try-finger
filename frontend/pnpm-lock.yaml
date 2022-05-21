@@ -8,7 +8,7 @@ specifiers:
   nuxt: 3.0.0-rc.3
   nuxt-windicss: ^2.3.1
   pinia: ^2.0.14
-  sass: ^1.52.0
+  sass: ^1.52.1
   wrangler: ^2.0.6
 
 dependencies:
@@ -19,9 +19,9 @@ dependencies:
 
 devDependencies:
   '@unocss/nuxt': 0.34.0
-  nuxt: 3.0.0-rc.3_sass@1.52.0
+  nuxt: 3.0.0-rc.3_sass@1.52.1
   nuxt-windicss: 2.3.1
-  sass: 1.52.0
+  sass: 1.52.1
   wrangler: 2.0.6
 
 packages:
@@ -1251,7 +1251,7 @@ packages:
     resolution: {integrity: sha512-ejiWi7RJfUp71K5IRpfrhoiZcvxhn1K+YH5mWdwwCT7jeQyE+Ok6WdFMpSg4LYy8YsVw6XHr5I+g23OCebc24w==}
     dev: true
 
-  /@nuxt/vite-builder/3.0.0-rc.3_sass@1.52.0+vue@3.2.33:
+  /@nuxt/vite-builder/3.0.0-rc.3_sass@1.52.1+vue@3.2.33:
     resolution: {integrity: sha512-C1IPoUADHYWvlNHJIJzj1gm+rqCVYqbJ+YeKANG118TtVa1mB2t9R+FgMO4AE/oOfmd4nUrbNDPreUoIBaL6kg==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     peerDependencies:
@@ -1285,8 +1285,8 @@ packages:
       rollup-plugin-visualizer: 5.6.0_rollup@2.72.1
       ufo: 0.8.4
       unplugin: 0.6.3_qiw6h2ycxia347bscgpqvththm
-      vite: 2.9.8_sass@1.52.0
-      vite-node: 0.12.3_sass@1.52.0
+      vite: 2.9.8_sass@1.52.1
+      vite-node: 0.12.3_sass@1.52.1
       vite-plugin-checker: 0.4.6_vite@2.9.8
       vue: 3.2.33
     transitivePeerDependencies:
@@ -1719,7 +1719,7 @@ packages:
       vue:
         optional: true
     dependencies:
-      vite: 2.9.8_sass@1.52.0
+      vite: 2.9.8_sass@1.52.1
       vue: 3.2.33
     dev: true
 
@@ -4598,7 +4598,7 @@ packages:
       - webpack
     dev: true
 
-  /nuxt/3.0.0-rc.3_sass@1.52.0:
+  /nuxt/3.0.0-rc.3_sass@1.52.1:
     resolution: {integrity: sha512-Ch68sD9Npt3BN0ZphvtRurVhFqtm1sAu4VDoXghmsRoVAwpT2ZDeDWaQJ9PSmXHYwyEaXPIZ9B2EDXPKETh0cQ==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
@@ -4608,7 +4608,7 @@ packages:
       '@nuxt/schema': 3.0.0-rc.3
       '@nuxt/telemetry': 2.1.3
       '@nuxt/ui-templates': 0.1.1
-      '@nuxt/vite-builder': 3.0.0-rc.3_sass@1.52.0+vue@3.2.33
+      '@nuxt/vite-builder': 3.0.0-rc.3_sass@1.52.1+vue@3.2.33
       '@vue/reactivity': 3.2.33
       '@vue/shared': 3.2.33
       '@vueuse/head': 0.7.6_vue@3.2.33
@@ -5497,8 +5497,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass/1.52.0:
-    resolution: {integrity: sha512-6EnTglag2oVD8sNJCxUi2Jd3ICH9tJ5Mqudt/gIZNBR2uKJUBZuTpW9O1t04SkDLP7VFa76FCWTV2rwchqM8Kw==}
+  /sass/1.52.1:
+    resolution: {integrity: sha512-fSzYTbr7z8oQnVJ3Acp9hV80dM1fkMN7mSD/25mpcct9F7FPBMOI8krEYALgU1aZoqGhQNhTPsuSmxjnIvAm4Q==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -6197,7 +6197,7 @@ packages:
       chokidar: 3.5.3
       esbuild: 0.14.38
       rollup: 2.72.1
-      vite: 2.9.8_sass@1.52.0
+      vite: 2.9.8_sass@1.52.1
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.3
     dev: true
@@ -6245,7 +6245,7 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: true
 
-  /vite-node/0.12.3_sass@1.52.0:
+  /vite-node/0.12.3_sass@1.52.1:
     resolution: {integrity: sha512-thXjAUe+HDY+q+lyRLoH1z62W+/x+R2qvdBUsbrv1+fk2cVdAQqvVL/bYOSb+bNrpgrgRPP+6ZYC8HHkycCIEQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -6253,7 +6253,7 @@ packages:
       kolorist: 1.5.1
       mlly: 0.5.2
       pathe: 0.2.0
-      vite: 2.9.8_sass@1.52.0
+      vite: 2.9.8_sass@1.52.1
     transitivePeerDependencies:
       - less
       - sass
@@ -6280,7 +6280,7 @@ packages:
       npm-run-path: 4.0.1
       strip-ansi: 6.0.1
       tiny-invariant: 1.2.0
-      vite: 2.9.8_sass@1.52.0
+      vite: 2.9.8_sass@1.52.1
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.4
@@ -6303,7 +6303,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite/2.9.8_sass@1.52.0:
+  /vite/2.9.8_sass@1.52.1:
     resolution: {integrity: sha512-zsBGwn5UT3YS0NLSJ7hnR54+vUKfgzMUh/Z9CxF1YKEBVIe213+63jrFLmZphgGI5zXwQCSmqIdbPuE8NJywPw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -6323,7 +6323,7 @@ packages:
       postcss: 8.4.13
       resolve: 1.22.0
       rollup: 2.72.1
-      sass: 1.52.0
+      sass: 1.52.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
