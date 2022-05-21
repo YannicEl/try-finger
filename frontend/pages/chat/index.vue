@@ -1,3 +1,3 @@
 <template>
-    <p>HENLO</p>
+	<NuxtLayout> <p>HENLO</p> </NuxtLayout>
 </template>
