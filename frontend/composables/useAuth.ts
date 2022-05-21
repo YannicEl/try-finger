@@ -37,6 +37,7 @@ export const useAuth = () => {
 	};
 
 	return {
+		auth,
 		loginAsGuest,
 		register,
 		login,

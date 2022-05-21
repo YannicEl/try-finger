@@ -7,12 +7,14 @@ export interface ListItem {
 
 export interface State {
 	listItems: ListItem[];
+	loggedIn: boolean;
 }
 
 export const useStore = defineStore('main', {
 	state: (): State => {
 		return {
 			listItems: [],
+			loggedIn: false,
 		};
 	},
 	getters: {},
