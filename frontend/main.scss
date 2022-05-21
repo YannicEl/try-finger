@@ -1,5 +1,5 @@
 html {
-	@apply bg-gray-100 font-serif;
+	@apply bg-gray-100 font-serif text-lg;
 	color: #d1d0d0;
 }
 
@@ -33,6 +33,25 @@ button[btn] {
 		&:hover,
 		&:focus {
 			box-shadow: var(--light-glow);
+		}
+	}
+}
+
+form[form] {
+	@apply grid gap-4 md:gap-8 place-items-center;
+
+	label {
+		@apply w-full bg-hex-3E3B30 py-3 pr-10 grid grid-cols-2;
+
+		box-shadow: inset 0px 0px 5px 3px #111111;
+		background: linear-gradient(90deg, #2b2921 0%, #3e3b30 31.72%);
+
+		span {
+			@apply place-self-center;
+		}
+
+		input {
+			@apply bg-hex-191915 border-none text-center;
 		}
 	}
 }
