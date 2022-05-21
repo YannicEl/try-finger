@@ -8,6 +8,7 @@ import {
 	doc,
 	onSnapshot,
 	getDocs,
+	setDoc,
 	QueryConstraint,
 	query,
 	QueryDocumentSnapshot,
@@ -56,6 +57,17 @@ export const useFirestore = <T extends BaseDoc>(path: Collections) => {
 		} as WithFieldValue<T>);
 	};
 
+	const set = (
+		id: string,
+		body: Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>
+	): Promise<void> => {
+		return setDoc<T>(doc(collection, id), {
+			...body,
+			createdAt: serverTimestamp(),
+			updatedAt: serverTimestamp(),
+		} as WithFieldValue<T>);
+	};
+
 	const update = (
 		id: string,
 		body: Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>
@@ -92,5 +104,5 @@ export const useFirestore = <T extends BaseDoc>(path: Collections) => {
 		return collectionData;
 	};
 
-	return { add, update, get, getRef, list, listRef };
+	return { add, set, update, get, getRef, list, listRef };
 };
