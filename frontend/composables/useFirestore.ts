@@ -20,7 +20,11 @@ import {
 import { Ref } from 'vue';
 import { BaseDoc } from '~~/types/BaseDoc';
 
-export type Collections = 'chats' | 'users' | `${string}/messages`;
+export type Collections =
+	| 'chats'
+	| 'users'
+	| `${string}/messages`
+	| `${string}/joinedChats`;
 
 export const useFirestore = <T extends BaseDoc>(path: Collections) => {
 	const converter: FirestoreDataConverter<T> = {

@@ -1,3 +1,3 @@
 <template>
-	<NuxtLayout> <p>HENLO</p> </NuxtLayout>
+	<NuxtLayout> Select a chat </NuxtLayout>
 </template>

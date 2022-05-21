@@ -56,11 +56,14 @@ const submit = async () => {
 
 	const auth = useAuth();
 	await auth.login(email, password);
+
+	navigateTo('chat');
 };
 
 const loginAsGuest = async () => {
 	const auth = useAuth();
-	auth.loginAsGuest();
+	await auth.loginAsGuest();
+	navigateTo('chat');
 };
 </script>
 

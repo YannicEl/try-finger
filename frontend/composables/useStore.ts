@@ -1,29 +1,23 @@
 import { defineStore } from 'pinia';
 
-export interface ListItem {
-	title: string;
-	text: string;
+export interface JoinedChats {
+	id: string;
+	name: string;
+	lastMsg: string;
 }
 
 export interface State {
-	listItems: ListItem[];
-	loggedIn: boolean;
+	chats: JoinedChats[];
 }
 
 export const useStore = defineStore('main', {
 	state: (): State => {
 		return {
-			listItems: [],
-			loggedIn: false,
+			chats: [],
 		};
 	},
 	getters: {},
 	actions: {
-		addItem() {
-			this.listItems.push({
-				title: `Title ${this.listItems.length + 1}`,
-				text: `Text ${this.listItems.length + 1}`,
-			});
-		},
+		addItem() {},
 	},
 });
