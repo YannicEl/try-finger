@@ -25,7 +25,7 @@ const messages = dbMessages.listRef([orderBy('createdAt')]);
 onKeyStroke('Enter', () => send());
 
 const send = async () => {
-	await dbMessages.add({
+	dbMessages.add({
 		message: message.value,
 	});
 
