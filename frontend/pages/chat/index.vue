@@ -67,7 +67,7 @@ const submit = async () => {
 	})
 
 	const dbJoinedChats = useDbJoinedChats(uid);
-	dbJoinedChats.add({
+	dbJoinedChats.set(chatRef.id, {
 		name: chatName,
 		lastMsg: 'empty or wqhatvever'
 	})

@@ -1,9 +1,7 @@
 import { Message } from '~~/types/Message';
 
-export const useDbMessage = (roomId: string) => {
-	const db = useFirestore<Message>(`${roomId}/messages`);
-
-  
+export const useDbMessage = (chatId: string) => {
+	const db = useFirestore<Message>(`chats/${chatId}/messages`);  
 
 	return { ...db };
 };
