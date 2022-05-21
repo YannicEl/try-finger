@@ -1,6 +1,6 @@
 <template>
 	<div class="flex-1 grid place-items-center bg-hex-12110f">
-		<form @submit.prevent="submit" class="grid gap-4 place-items-center">
+		<form @submit.prevent="submit" class="grid gap-4 place-items-center max-w-xl w-full">
 			<div class="text-hex-d4d4d3 text-shadow-lg font-bold text-4xl tracking-widest">
 				Login
 			</div>
@@ -20,12 +20,12 @@
 				/>
 			</label>
 
-			<div class="flex">
-				<button btn secondary type="button" @click="loginAsGuest">
+			<div class="flex gap-4 w-full">
+				<button btn secondary type="button" class="w-full" @click="loginAsGuest">
 					Continue as guest
 				</button>
 
-				<button btn primary>Login</button>
+				<button btn primary class="w-full">Login</button>
 			</div>
 
 			<NuxtLink btn secondary to="register">Don't have an account?</NuxtLink>
@@ -44,13 +44,10 @@ const form = {
 };
 
 const submit = async () => {
-	const auth = useAuth();
-
-	console.log('form submitted');
-
-	console.log(form);
-
 	const { email, password } = form;
+	if (!email || !password) return;
+
+	const auth = useAuth();
 	await auth.login(email, password);
 };
 

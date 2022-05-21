@@ -50,13 +50,10 @@ const form = {
 };
 
 const submit = async () => {
-	const auth = useAuth();
-
-	console.log('form submitted');
-
-	console.log(form);
-
 	const { username, email, password } = form;
+	if (!username || !email || !password) return;
+
+	const auth = useAuth();
 	await auth.register(username, email, password);
 };
 
