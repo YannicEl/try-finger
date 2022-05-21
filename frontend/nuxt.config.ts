@@ -52,6 +52,6 @@ export default defineNuxtConfig({
 	nitro: {
 		preset: 'cloudflare',
 	},
-
+	ssr: false,
 	css: ['~/main.scss'],
 });
