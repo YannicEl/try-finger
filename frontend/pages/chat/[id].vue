@@ -1,15 +1,17 @@
 <template>
-	<NuxtLayout>
-		<div class="flex-1 h-full">
-			<div v-for="{ id, message } in messages" :key="id">
-				{{ message }}
+	<NuxtLayout >
+		<div class="flex gap-4 flex-col w-full p-4">
+			<div class="flex-1 overflow-y-auto">
+				<div v-for="{ id, message } in messages" :key="id">
+					{{ message }}
+				</div>
 			</div>
-		</div>
 
-		<div class="flex">
-			<input type="text" name="message" id="message" v-model.trim="message" />
+			<div class="flex h-12">
+				<input type="text" name="message" id="message" class="flex-1" v-model.trim="message" />
 
-			<button @click="send" primary btn>sned</button>
+				<button @click="send" primary btn>sned</button>
+			</div>
 		</div>
 	</NuxtLayout>
 </template>

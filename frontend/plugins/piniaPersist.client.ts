@@ -9,7 +9,7 @@ const getItem = (key: string) => {
 	if (!found) return null;
 
 	return JSON.parse(found, (key, value) => {
-		const { createdAt, updatedAt } = value;
+		const { createdAt, updatedAt } = value || {};
 
 		// convert ISO date strings into Date objects
 		if (createdAt) value.createdAt = new Date(createdAt);

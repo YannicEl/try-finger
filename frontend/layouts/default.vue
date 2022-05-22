@@ -8,7 +8,7 @@
 		</Resizable>
 
 		<!-- right column -->
-		<div class="flex-1 grid">
+		<div class="flex-1 flex">
 			<slot></slot>
 		</div>
 	</div>

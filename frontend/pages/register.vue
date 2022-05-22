@@ -61,6 +61,7 @@ const submit = async () => {
 
 	const auth = useAuth();
 	await auth.register(username, email, password);
+	navigateTo('chat');
 };
 
 const loginAsGuest = async () => {
