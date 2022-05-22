@@ -7,40 +7,57 @@ service cloud.firestore {
 
       match /users/{userId} {
         // only allow users to get + create their own user document
-        allow get, create: if request.auth.uid == userId;
+        allow get, create: if request.auth.uid == userId 
+          && verifyCreateFields([], ["name"]);
 
         match /joinedChats/{chatId} {
-          // only allow users to read + create their own joinedChats
-          allow list, create: if request.auth.uid == userId;
+          // only allow users to list their own joinedChats
+          allow list: if request.auth.uid == userId 
+
+          // only allow users to create their own joinedChats
+          allow create: if request.auth.uid == userId && verifyCreateFields(["name"], ["lastMsg"]);
         }
       }
 
       match /chats/{chatId} {
         // allow everybody to create new chats
-        allow create: if true;
+        allow create: if verifyCreateFields(["name", "members"], []);
 
         // only allow users to get chats where they are a member
         allow get: if request.auth.uid in resource.data.members
 
-        match /messages/{messageId} { 
+        match /messages/{messageId} {
           // only allow users to read messages of a chat if they are a member
           allow list: if request.auth.uid in get(/databases/$(database)/documents/chats/$(chatId)).data.members
+
+          // only allow users to create messages if they are a member of the chat and if the "sender" field == uid from the logged in user
+          allow create: if request.auth.uid in get(/databases/$(database)/documents/chats/$(chatId)).data.members 
+            && request.resource.data.sender == request.auth.uid 
+            && verifyCreateFields(["sender", "message"], [])
 
           // only allow users to delete messages that they wrote
           allow delete: if resource.data.sender == request.auth.uid;
 
           // only allow users to update the "message" field on their own messages 
-          allow update: if resource.data.sender == request.auth.uid && verifyFields(["message"]);
+          allow update: if resource.data.sender == request.auth.uid 
+            && verifyUpdateFields(["message"]);
         }
       }
     }
   }
 
+  // verifies that only required or optional fields are written on create
+  function verifyCreateFields(required, optional) {
+    // fields "updatedAt" and "createdAt" are always allowed
+    let allAllowedFields = ["updatedAt", "createdAt"].concat(required).concat(optional);
+    return request.resource.data.keys().hasAll(required) 
+      && request.resource.data.keys().hasOnly(allAllowedFields);
+  }
 
-  // helper function that valdiates that only allowed field are updated
-  function verifyFields(allowedFields) {
+  // verifies that only allowed fields are updated
+  function verifyUpdateFields(allowed) {
     // field "updatedAt" is always allowed
-    let allAllowedFields = ["updatedAt"].concat(allowedFields);
-    return request.resource.data.keys().hasOnly(allAllowedFields);
+    let changedFields = request.resource.data.diff(resource.data).affectedKeys().concat(["updatedAt"]);
+    return changedFields.hasOnly(allowed);
   }
 }
