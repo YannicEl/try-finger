@@ -13,3 +13,5 @@
 		</div>
 	</div>
 </template>
+
+<script setuo lang="ts"></script>

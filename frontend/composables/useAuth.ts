@@ -6,14 +6,20 @@ import {
 	updateProfile,
 	UserCredential,
 	onAuthStateChanged,
+	Unsubscribe,
+	User,
 } from 'firebase/auth';
+
+let authStateSub: Unsubscribe;
 
 export const useAuth = () => {
 	const auth = getAuth(useFirebase());
 
-	onAuthStateChanged(auth, async (user) => {
-		console.log('user:', user);
-	});
+	if (!authStateSub) {
+		authStateSub = onAuthStateChanged(auth, async (user) => {
+			console.log('user:', user);
+		});
+	}
 
 	const register = async (
 		username: string,
@@ -28,6 +34,11 @@ export const useAuth = () => {
 		return signInWithEmailAndPassword(auth, email, password);
 	};
 
+	const logout = async (): Promise<void> => {
+		await auth.signOut();
+		navigateTo('/login');
+	};
+
 	const loginAsGuest = async (): Promise<UserCredential | null> => {
 		try {
 			return signInAnonymously(auth);
@@ -36,10 +47,21 @@ export const useAuth = () => {
 		}
 	};
 
+	const getCurrentUser = async (): Promise<User | null> => {
+		return new Promise((resolve) => {
+			const unsubscribe = onAuthStateChanged(auth, (user) => {
+				unsubscribe();
+				resolve(user);
+			});
+		});
+	};
+
 	return {
 		auth,
 		loginAsGuest,
 		register,
 		login,
+		logout,
+		getCurrentUser,
 	};
 };

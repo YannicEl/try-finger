@@ -17,6 +17,10 @@
 <script setup lang="ts">
 import { orderBy } from 'firebase/firestore';
 
+definePageMeta({
+	middleware: ['auth'],
+});
+
 const dbMessages = useDbMessage(<string>useRoute().params.id);
 
 const message = ref('');

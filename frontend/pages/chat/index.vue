@@ -1,9 +1,9 @@
 <template>
 	<NuxtLayout>
-		<div class="grid place-items-center bg-hex-12110f">
+		<div class="grid place-items-center">
 			<form form @submit.prevent="submit" class="max-w-xl w-full">
 				<div class="text-hex-d4d4d3 text-shadow-lg font-bold text-4xl tracking-widest">
-					Login
+					Add Chat
 				</div>
 
 				<label for="chatName">
@@ -14,7 +14,12 @@
 				<div class="flex flex-row">
 					<label for="chatMember">
 						<span>Members</span>
-						<input type="text" name="chatMember" id="chatMember" v-model.trim="chatMember" />
+						<input
+							type="text"
+							name="chatMember"
+							id="chatMember"
+							v-model.trim="chatMember"
+						/>
 					</label>
 
 					<button type="button" btn primary @click="addMember">Add</button>
@@ -38,8 +43,8 @@ definePageMeta({
 const chatMember = ref('');
 
 const form = ref<{
-	chatName: string,
-	chatMembers: string[]
+	chatName: string;
+	chatMembers: string[];
 }>({
 	chatName: '',
 	chatMembers: [],
@@ -52,7 +57,7 @@ const addMember = () => {
 
 	form.value.chatMembers.push(chatMember.value);
 	chatMember.value = '';
-}
+};
 
 const submit = async () => {
 	const uid = 'JxrDqFR8wGRCJ1qvkuBFe58cvaQ2';
@@ -63,19 +68,17 @@ const submit = async () => {
 	const chatDb = useDbChat();
 	const chatRef = await chatDb.add({
 		name: chatName,
-		members: [...chatMembers, uid]
-	})
+		members: [...chatMembers, uid],
+	});
 
 	const dbJoinedChats = useDbJoinedChats(uid);
 	dbJoinedChats.set(chatRef.id, {
 		name: chatName,
-		lastMsg: 'empty or wqhatvever'
-	})
+		lastMsg: 'empty or wqhatvever',
+	});
 
 	navigateTo(`/chat/${chatRef.id}`);
 };
-
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

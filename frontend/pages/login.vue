@@ -1,5 +1,5 @@
 <template>
-	<div class="flex-1 grid place-items-center bg-hex-12110f px-4">
+	<div class="flex-1 grid place-items-center px-4">
 		<form form @submit.prevent="submit" class="max-w-xl w-full">
 			<div class="text-hex-d4d4d3 text-shadow-lg font-bold text-4xl tracking-widest">
 				Login
@@ -41,7 +41,6 @@
 
 <script setup lang="ts">
 definePageMeta({
-	middleware: ['auth'],
 	layout: false,
 });
 
