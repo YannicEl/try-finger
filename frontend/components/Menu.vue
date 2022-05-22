@@ -6,12 +6,15 @@
 			<span class="bg-white w-full rounded-full h-3px"></span>
 		</button>
 
+		<button @click="logout">logout</button>
+
 		<MainSearch class="flex-1" />
 	</div>
 </template>
 
 <script setup lang="ts">
 const { addItem } = useStore();
+const { logout } = useAuth();
 </script>
 
 <style scoped lang="scss"></style>

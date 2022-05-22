@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 const { uid } = useStore();
-const db = useDbJoinedChats(uid!);
+const db = useDbJoinedChats(uid);
 const chats = db.listRef();
 </script>
 

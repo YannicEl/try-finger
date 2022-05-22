@@ -18,8 +18,10 @@ export const useAuth = () => {
 
 	if (!authStateSub) {
 		authStateSub = onAuthStateChanged(auth, async (user) => {
-			const store = useStore();
-			store.uid = user?.uid || null;
+			if (user) {
+				const store = useStore();
+				store.uid = user.uid;
+			}
 		});
 	}
 
@@ -48,6 +50,8 @@ export const useAuth = () => {
 	};
 
 	const getCurrentUser = async (): Promise<User | null> => {
+		if (auth.currentUser) return auth.currentUser;
+
 		return new Promise((resolve) => {
 			const unsubscribe = onAuthStateChanged(auth, (user) => {
 				unsubscribe();

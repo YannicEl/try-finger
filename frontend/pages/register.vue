@@ -45,10 +45,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-	layout: false,
-});
-
 const form = {
 	username: '',
 	email: '',
