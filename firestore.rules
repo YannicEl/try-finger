@@ -9,11 +9,9 @@ service cloud.firestore {
         // only allow users to get + create their own user document
         allow get, create: if request.auth.uid == userId;
 
-
-
         match /joinedChats/{chatId} {
-          // only allow users to read their own joinedChats
-          allow read: if request.auth.uid == userId;
+          // only allow users to read + create their own joinedChats
+          allow list, create: if request.auth.uid == userId;
         }
       }
 
