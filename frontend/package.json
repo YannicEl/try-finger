@@ -19,5 +19,17 @@
 		"@vueuse/nuxt": "^8.5.0",
 		"firebase": "^9.8.1",
 		"pinia": "^2.0.14"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"vite",
+				"vue",
+				"webpack"
+			],
+      "allowedVersions": {
+				"vue": "3.2.36"
+			}
+		}
 	}
 }
