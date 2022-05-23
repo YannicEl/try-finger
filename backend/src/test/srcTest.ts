@@ -8,7 +8,11 @@ export const handler = async (req: Request, res: Response) => {
 
 	logger.log(user);
 
-	console.log(add(1, 2));
+	const sum = add(1, 2);
+
+	logger.log(sum);
+
+	logger.log('lol');
 
 	try {
 		res.sendStatus(200);
