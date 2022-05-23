@@ -28,7 +28,7 @@ jobs:
           cache-dependency-path: backend/pnpm-lock.yaml
 
       - name: Install dependencies
-        run: cd backend/; pnpm i
+        run: cd backend/; pnpm --filter backend i
 
       - name: Deploy
         run: cd backend/; pnpm run deploy:prod
