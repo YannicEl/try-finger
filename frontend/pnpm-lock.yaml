@@ -6,7 +6,7 @@ specifiers:
   '@vueuse/nuxt': ^8.5.0
   firebase: ^9.8.1
   nuxt: 3.0.0-rc.3
-  nuxt-windicss: ^2.3.1
+  nuxt-windicss: ^2.3.2
   pinia: ^2.0.14
   sass: ^1.52.1
   wrangler: ^2.0.6
@@ -20,7 +20,7 @@ dependencies:
 devDependencies:
   '@unocss/nuxt': 0.34.0
   nuxt: 3.0.0-rc.3_sass@1.52.1
-  nuxt-windicss: 2.3.1
+  nuxt-windicss: 2.3.2
   sass: 1.52.1
   wrangler: 2.0.6
 
@@ -1085,36 +1085,6 @@ packages:
       - webpack
     dev: true
 
-  /@nuxt/kit/3.0.0-rc.2:
-    resolution: {integrity: sha512-uRsV2UWj4sgkXhXq8bMcl+jostzfKsRUNQVIVHOi7TrhuHBnF1UjZJN9UfOAHVVzobQ9zUXLnGL7+PJhQ/xDdw==}
-    engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
-    dependencies:
-      '@nuxt/schema': 3.0.0-rc.3
-      c12: 0.2.7
-      consola: 2.15.3
-      defu: 6.0.0
-      globby: 13.1.1
-      hash-sum: 2.0.0
-      ignore: 5.2.0
-      jiti: 1.13.0
-      knitwork: 0.1.1
-      lodash.template: 4.5.0
-      mlly: 0.5.2
-      pathe: 0.2.0
-      pkg-types: 0.3.2
-      scule: 0.2.1
-      semver: 7.3.7
-      unctx: 1.1.4
-      unimport: 0.1.9
-      untyped: 0.4.4
-    transitivePeerDependencies:
-      - esbuild
-      - rollup
-      - supports-color
-      - vite
-      - webpack
-    dev: true
-
   /@nuxt/kit/3.0.0-rc.3:
     resolution: {integrity: sha512-aD993HKXZ76cwxkM2LCwWRQaOI3RjLCg/kj+8ZS6qN4VrpwrZp4xM59YYIYs3/Vze4OG3D4+0gr0u5zdgf8v8g==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
@@ -1901,7 +1871,7 @@ packages:
     dependencies:
       debug: 4.3.4
       jiti: 1.13.0
-      windicss: 3.5.1
+      windicss: 3.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1915,7 +1885,7 @@ packages:
       fast-glob: 3.2.11
       magic-string: 0.26.2
       micromatch: 4.0.5
-      windicss: 3.5.1
+      windicss: 3.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2104,7 +2074,7 @@ packages:
     dev: true
 
   /boolbase/1.0.0:
-    resolution: {integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=}
+    resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
   /brace-expansion/1.1.11:
@@ -4573,23 +4543,23 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-windicss/2.3.1:
-    resolution: {integrity: sha512-GQmy0U/FYzJ5l8aTt6JQtpQ2GWbhoQk1DRmjVYx9AHNyJKyy/MHhNpoJ/cPrMQdOAVQRzmGJOl+VFH8uBNkbaA==}
+  /nuxt-windicss/2.3.2:
+    resolution: {integrity: sha512-nyFGK55W6NrfXQ7PkIGtDJO7zsSAMVmZThJCRjhtkJjLv+/a5WDMb/HS70k12Pwtkl0Y/kRHdr0CrJMM94Sm4A==}
     dependencies:
-      '@nuxt/kit': 3.0.0-rc.2
+      '@nuxt/kit': 3.0.0-rc.3
       '@windicss/plugin-utils': 1.8.4
       consola: 2.15.3
       defu: 6.0.0
       fs-extra: 10.1.0
       h3: 0.7.8
       listhen: 0.2.11
-      pathe: 0.2.0
+      pathe: 0.3.0
       read-cache: 1.0.0
       sirv: 2.0.2
       vite-plugin-windicss: 1.8.4
-      windicss: 3.5.1
+      windicss: 3.5.4
       windicss-analysis: 0.3.5
-      windicss-webpack-plugin: 1.7.2
+      windicss-webpack-plugin: 1.7.3
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -6298,7 +6268,7 @@ packages:
       '@windicss/plugin-utils': 1.8.4
       debug: 4.3.4
       kolorist: 1.5.1
-      windicss: 3.5.1
+      windicss: 3.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6497,8 +6467,8 @@ packages:
       - supports-color
     dev: true
 
-  /windicss-webpack-plugin/1.7.2:
-    resolution: {integrity: sha512-7KopGPg63RXyJfsq/2OAHYoAFyIHSeexAk+MYMlW4CsBlEb+sw0Kt2v0gLgsPc1zs90oky1crAElKk+DDk8/5A==}
+  /windicss-webpack-plugin/1.7.3:
+    resolution: {integrity: sha512-vESTMEUqzNlvOmnOCCxeqDkj1q2u69FfKMQHyTF9Y9tLJbWttEHgt+qSJZ3cYndUHRxbz06INanEyL08dQr79A==}
     dependencies:
       '@windicss/plugin-utils': 1.8.4
       debug: 4.3.4
@@ -6507,13 +6477,13 @@ packages:
       lodash: 4.17.21
       pathe: 0.2.0
       webpack-virtual-modules: 0.4.3
-      windicss: 3.5.1
+      windicss: 3.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /windicss/3.5.1:
-    resolution: {integrity: sha512-E1hYZATcZFci/XhGS0sJAMRxULjnK+glNukE78Ku7xeb3jxgMY55fFOdIrav+GjQCsgR+IZxPq9/DwmO6eyc4Q==}
+  /windicss/3.5.4:
+    resolution: {integrity: sha512-x2Iu0a69dtNiKHMkR886lx0WKbZI5GqvXyvGBCJ2VA6rcjKYjnzCA/Ljd6hNQBfqlkSum8J+qAVcCfLzQFI4rQ==}
     engines: {node: '>= 12'}
     hasBin: true
     dev: true

@@ -10,7 +10,7 @@
 	"devDependencies": {
 		"@unocss/nuxt": "^0.34.0",
 		"nuxt": "3.0.0-rc.3",
-		"nuxt-windicss": "^2.3.1",
+		"nuxt-windicss": "^2.3.2",
 		"sass": "^1.52.1",
 		"wrangler": "^2.0.6"
 	},
