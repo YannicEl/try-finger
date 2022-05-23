@@ -1,1 +1,4 @@
 .pnpm-debug.log
+
+# Node.js dependency directory
+node_modules/

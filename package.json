@@ -1,0 +1,16 @@
+{
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"@firebase/app-compat",
+				"@firebase/app-types",
+				"vite",
+				"vue",
+				"webpack"
+			],
+			"allowedVersions": {
+				"vue": "3.2.36"
+			}
+		}
+	}
+}
