@@ -1,5 +1,5 @@
 import { logger, Response, Request } from 'firebase-functions';
-import { User } from 'lib';
+import { User, add } from 'lib';
 
 export const handler = async (req: Request, res: Response) => {
 	logger.log(req.body);
@@ -7,6 +7,8 @@ export const handler = async (req: Request, res: Response) => {
 	const user: User = { name: '1' };
 
 	logger.log(user);
+
+	console.log(add(1, 2));
 
 	try {
 		res.sendStatus(200);
