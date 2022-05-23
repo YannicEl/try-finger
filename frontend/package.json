@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^0.1.9",
+		"@try-finger/lib": "workspace:*",
 		"@vueuse/nuxt": "^8.5.0",
 		"firebase": "^9.8.1",
 		"pinia": "^2.0.14"
@@ -27,7 +28,7 @@
 				"vue",
 				"webpack"
 			],
-      "allowedVersions": {
+			"allowedVersions": {
 				"vue": "3.2.36"
 			}
 		}
