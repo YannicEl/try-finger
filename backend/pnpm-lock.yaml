@@ -4,7 +4,7 @@ specifiers:
   firebase-admin: ^10.2.0
   firebase-functions: 3.21.2
   firebase-tools: 11.0.0
-  lib: workspace:*
+  lib: file:../lib
   typescript: 4.6.4
 
 dependencies:
@@ -13,7 +13,7 @@ dependencies:
 
 devDependencies:
   firebase-tools: 11.0.0
-  lib: link:../lib
+  lib: file:../lib
   typescript: 4.6.4
 
 packages:
@@ -4667,4 +4667,10 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.0
+    dev: true
+
+  file:../lib:
+    resolution: {directory: ../lib, type: directory}
+    name: lib
+    version: 1.0.0
     dev: true
