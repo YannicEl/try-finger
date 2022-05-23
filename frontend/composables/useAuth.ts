@@ -9,7 +9,7 @@ import {
 	Unsubscribe,
 	User,
 } from 'firebase/auth';
-import { User as UserDoc } from '~~/types/User';
+import { User as UserDoc } from '@try-finger/lib';
 
 let authStateSub: Unsubscribe;
 

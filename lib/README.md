@@ -1,0 +1,1 @@
+# Shareable logic and types for use with try-finger

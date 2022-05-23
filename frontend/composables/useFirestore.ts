@@ -19,7 +19,7 @@ import {
 	UpdateData,
 } from 'firebase/firestore';
 import { Ref } from 'vue';
-import { BaseDoc } from '~~/types/BaseDoc';
+import { BaseDoc } from '@try-finger/lib';
 
 export type Collections =
 	| 'chats'

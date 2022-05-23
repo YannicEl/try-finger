@@ -1,6 +1,7 @@
 {
 	"name": "@try-finger/lib",
-	"version": "1.0.0",
+	"version": "0.0.1",
+	"description": "Shareable logic and types for use with try-finger",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"type": "module",

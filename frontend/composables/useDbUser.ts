@@ -1,4 +1,4 @@
-import { User } from '~~/types/User';
+import { User } from '@try-finger/lib';
 
 export const useDbUser = () => {
 	const db = useFirestore<User>('users');
