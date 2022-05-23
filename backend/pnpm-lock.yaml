@@ -10,10 +10,10 @@ specifiers:
 dependencies:
   firebase-admin: 10.2.0
   firebase-functions: 3.21.2_firebase-admin@10.2.0
-  lib: link:../lib
 
 devDependencies:
   firebase-tools: 11.0.0
+  lib: link:../lib
   typescript: 4.6.4
 
 packages:
