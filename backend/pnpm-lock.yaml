@@ -1,18 +1,18 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@try-finger/lib': link:../lib
   firebase-admin: ^10.2.0
   firebase-functions: 3.21.2
   firebase-tools: 11.0.0
-  lib: file:../lib
   typescript: 4.6.4
 
 dependencies:
   firebase-admin: 10.2.0
   firebase-functions: 3.21.2_firebase-admin@10.2.0
-  lib: file:../lib
 
 devDependencies:
+  '@try-finger/lib': link:../lib
   firebase-tools: 11.0.0
   typescript: 4.6.4
 
@@ -4668,9 +4668,3 @@ packages:
       compress-commons: 4.1.1
       readable-stream: 3.6.0
     dev: true
-
-  file:../lib:
-    resolution: {directory: ../lib, type: directory}
-    name: lib
-    version: 1.0.0
-    dev: false

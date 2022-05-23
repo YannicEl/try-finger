@@ -1,5 +1,5 @@
 import { logger, Response, Request } from 'firebase-functions';
-import { User } from 'lib';
+import { User, add } from '@try-finger/lib';
 
 export const handler = async (req: Request, res: Response) => {
 	logger.log(req.body);
@@ -7,6 +7,10 @@ export const handler = async (req: Request, res: Response) => {
 	const user: User = { name: '1' };
 
 	logger.log(user);
+
+	const sum = add(1, 2);
+
+	logger.info(sum);
 
 	logger.log('lol');
 
