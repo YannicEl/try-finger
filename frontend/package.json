@@ -8,7 +8,7 @@
 		"deploy:prod": "wrangler publish --env prod"
 	},
 	"devDependencies": {
-		"@unocss/nuxt": "^0.34.0",
+		"@unocss/nuxt": "^0.34.1",
 		"nuxt": "3.0.0-rc.3",
 		"nuxt-windicss": "^2.3.2",
 		"sass": "^1.52.1",
