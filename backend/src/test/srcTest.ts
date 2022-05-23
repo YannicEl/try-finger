@@ -12,7 +12,7 @@ export const handler = async (req: Request, res: Response) => {
 
 	logger.info(sum);
 
-	logger.log('lol!');
+	logger.log('!lol!');
 
 	try {
 		res.sendStatus(200);
