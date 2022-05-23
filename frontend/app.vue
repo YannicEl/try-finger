@@ -6,6 +6,16 @@
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { User, add } from '@try-finger/lib';
+
+const user: User = { name: '1' };
+
+console.log(user);
+
+const sum = add(1, 2);
+
+console.log(sum);
+</script>
 
 <style scoped lang="scss"></style>
