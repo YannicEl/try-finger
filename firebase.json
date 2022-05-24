@@ -5,6 +5,8 @@
 	},
 	"hosting": [],
 	"functions": {
+		"predeploy": [],
+		"postdeploy": [],
 		"source": "backend",
 		"runtime": "nodejs16"
 	},
