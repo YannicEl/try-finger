@@ -12,11 +12,9 @@
 		"serve:prod": "firebase serve --only functions --project prod"
 	},
 	"devDependencies": {
+		"@try-finger/lib": "file:../lib",
 		"firebase-tools": "11.0.0",
 		"typescript": "4.7.2"
-	},
-	"optionalDependencies": {
-		"@try-finger/lib": "workspace:*"
 	},
 	"dependencies": {
 		"@try-finger/lib": "0.0.1",
