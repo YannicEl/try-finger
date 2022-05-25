@@ -19,7 +19,7 @@ import {
 	UpdateData,
 } from 'firebase/firestore';
 import { Ref } from 'vue';
-import { BaseDoc } from '@try-finger/lib';
+import { BaseDoc, RootCollection, SubCollection } from '@try-finger/lib';
 
 export type Collections =
 	| 'chats'
@@ -27,7 +27,11 @@ export type Collections =
 	| `${string}/messages`
 	| `${string}/joinedChats`;
 
-export const useFirestore = <T extends BaseDoc>(path: Collections) => {
+export const useFirestore = <
+	T extends (BaseDoc & SubCollection) | (BaseDoc & RootCollection)
+>(
+	path: Collections
+) => {
 	const converter: FirestoreDataConverter<T> = {
 		toFirestore: (e: WithFieldValue<T>): DocumentData => e,
 		fromFirestore: (snapshot: QueryDocumentSnapshot<DocumentData>): T => {
@@ -37,6 +41,8 @@ export const useFirestore = <T extends BaseDoc>(path: Collections) => {
 
 			return {
 				id: snapshot.id,
+				parentCol: snapshot.ref.parent?.parent?.parent?.id,
+				parentDoc: snapshot.ref.parent?.parent?.id,
 				createdAt: createdAt.toDate(),
 				updatedAt: updatedAt.toDate(),
 				...rest,

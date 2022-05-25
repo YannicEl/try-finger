@@ -1,5 +1,6 @@
-import { BaseDoc } from './BaseDoc';
-export interface JoinedChats extends BaseDoc {
+import { BaseDoc, SubCollection } from './BaseDoc';
+export interface JoinedChats extends BaseDoc, SubCollection {
+    parentCol: "users";
     name: string;
     lastMsg?: string;
 }

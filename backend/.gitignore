@@ -17,3 +17,4 @@ lib/
 # firebase logs
 firebase-debug.log
 .pnpm-debug.log
+ui-debug.log
