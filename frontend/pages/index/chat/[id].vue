@@ -34,6 +34,8 @@ const dbMessages = useDbMessage(chatId);
 const message = ref('');
 const messages = dbMessages.listRef([orderBy('createdAt')]);
 
+const chat = useDbChat().getRef(chatId);
+
 onKeyStroke('Enter', () => send());
 
 const send = async () => {
