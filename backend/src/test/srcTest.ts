@@ -1,5 +1,6 @@
 import { Message, User } from '@try-finger/lib';
 import { logger, Response, Request } from 'firebase-functions';
+import { runTransaction } from '../helpers/runTransaction.js';
 import { useFirestore } from '../helpers/useFirestore.js';
 
 export const handler = async (req: Request, res: Response) => {
@@ -14,7 +15,7 @@ export const handler = async (req: Request, res: Response) => {
 		const user = await dbUser.get(uid);
 		const message = await dbMessage.get(messageId);
 
-		await dbUser.runTransaction(async (t) => {
+		await runTransaction(async (t) => {
 			const user = await dbUser.getT(uid, t);
 
 			dbUser.updateT(uid, { name: user?.name + 'Yannic' } as User, t);

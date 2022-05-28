@@ -1,13 +1,20 @@
-import { getApp, initializeApp, App } from 'firebase-admin/app';
+import { initializeApp, App } from 'firebase-admin/app';
+import { getFirestore as _getFirestore, Firestore } from 'firebase-admin/firestore';
 
-let isInit = false;
-
+let app: App;
 export const useFirebase = (): App => {
-	if (isInit) {
-		return getApp();
-	} else {
-		const app = initializeApp();
-		isInit = true;
-		return app;
+	if (!app) {
+		app = initializeApp();
 	}
+
+	return app;
+};
+
+let firestore: Firestore;
+export const getFirestore = (): Firestore => {
+	if (!firestore) {
+		firestore = _getFirestore(useFirebase());
+	}
+
+	return firestore;
 };
