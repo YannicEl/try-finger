@@ -8,7 +8,7 @@ export const useInstantSearch = () => {
 
 	const query = async (query: string) => {
 		const projectId = 'P1PDUUXBC5';
-		const indexName = 'user_name_DEV';
+		const indexName = 'user_name';
 		const url = `https://${projectId}-dsn.algolia.net/1/indexes/${indexName}/query`;
 
 		const headers = new Headers();
