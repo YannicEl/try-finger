@@ -13,18 +13,13 @@
 			<div class="flex flex-row">
 				<label for="chatMember">
 					<span>Members</span>
-					<input
-						type="text"
-						name="chatMember"
-						id="chatMember"
-						v-model.trim="chatMember"
-					/>
+					<InstantSearch name="chatMember" id="chatMember" v-model="chatMember" />
 				</label>
 
 				<button type="button" btn primary @click="addMember">Add</button>
 			</div>
 
-			<div v-for="name in form.chatMembers" :key="name">
+			<div v-for="{ uid, name } in form.chatMembers" :key="uid">
 				{{ name }}
 			</div>
 
@@ -34,24 +29,28 @@
 </template>
 
 <script setup lang="ts">
-const chatMember = ref('');
+const chatMember = ref<{ uid: string; name: string } | null>(null);
 
 const form = ref<{
 	chatName: string;
-	chatMembers: string[];
+	chatMembers: { uid: string; name: string }[];
 }>({
 	chatName: '',
 	chatMembers: [],
 });
 
 const addMember = () => {
-	if (!chatMember) return;
+	console.log(chatMember.value);
+
+	if (!chatMember.value) return;
 
 	form.value.chatMembers.push(chatMember.value);
-	chatMember.value = '';
+	chatMember.value = null;
 };
 
 const submit = async () => {
+	console.log(form.value);
+
 	const { chatName, chatMembers } = form.value;
 	if (!chatName || !chatMembers.length) return;
 
@@ -60,7 +59,7 @@ const submit = async () => {
 	const chatDb = useDbChat();
 	const chatRef = await chatDb.add({
 		name: chatName,
-		members: [...chatMembers, uid],
+		members: [...chatMembers.map((e) => e.uid), uid],
 	});
 
 	const dbJoinedChats = useDbJoinedChats(uid);

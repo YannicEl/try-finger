@@ -8,14 +8,14 @@ export default defineConfig({
 			screens: {
 				'2xl': '1400px',
 			},
+			cursor: {
+				'col-resize': 'col-resize',
+			},
 		},
 		container: {},
 		fontFamily: {
 			// sans: ['Montserrat', 'sans-serif'],
 			serif: ['STIX Two Text', 'serif'],
-		},
-		cursor: {
-			'col-resize': 'col-resize',
 		},
 	},
 	plugins: [forms, aspectRatio],
