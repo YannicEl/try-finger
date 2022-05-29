@@ -13,7 +13,7 @@
 			<div class="flex flex-row">
 				<label for="chatMember">
 					<span>Members</span>
-					<InstantSearch name="chatMember" id="chatMember" v-model="chatMember" />
+					<InstantSearch name="chatMember" v-model="chatMember" />
 				</label>
 
 				<button type="button" btn primary @click="addMember">Add</button>
@@ -73,4 +73,5 @@ const submit = async () => {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+</style>
