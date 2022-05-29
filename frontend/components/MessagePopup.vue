@@ -1,10 +1,6 @@
 <template>
-	<Modal ref="modal" backdrop-class="bg-black/25" @close="emit('close')">
-		<form
-			form
-			v-if="!isSelectingWord"
-			class="p-12 max-h-9/10 border-4 border-yellow-glow"
-		>
+	<Modal ref="modal" backdrop-class="bg-black/25" @close="close">
+		<form form v-if="!isSelectingWord" class="p-12 max-h-9/10 border">
 			<label for="templates">
 				<span>Templates</span>
 				<select v-model="template" id="template">
@@ -153,7 +149,16 @@ const open = () => {
 };
 
 const close = () => {
+	reset();
 	modal.value?.close();
+	emit('close');
+};
+
+const reset = () => {
+	isSelectingWord.value = false;
+	selectedWord.value = '';
+	selectedCategory.value = '';
+	template.value = '';
 };
 
 defineExpose({

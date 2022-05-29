@@ -7,6 +7,15 @@ html {
 	@apply w-screen h-screen grid place-items-center;
 }
 
+.border {
+	border-width: 8px;
+	// border-top-width: 4px;
+	// border-bottom-width: 4px;
+	// border-image: linear-gradient(0deg, rgba(18,17,15,1) 0%, rgba(93,92,80,1) 50%, rgba(18,17,0,1) 100%) 44;
+	border-image: radial-gradient(circle, rgba(18,17,15,1) 0%, rgba(93,92,80,1) 50%, rgba(18,17,0,1) 100%);
+	border-image-slice: 5%;
+}
+
 a[btn],
 button[btn],
 li[btn] {
