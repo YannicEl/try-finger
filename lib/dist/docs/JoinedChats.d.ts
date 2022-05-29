@@ -1,6 +1,6 @@
 import { BaseDoc, SubCollection } from './BaseDoc';
 export interface JoinedChats extends BaseDoc, SubCollection {
-    parentCol: "users";
+    parentCol: 'users';
     name: string;
     lastMsg?: string;
 }

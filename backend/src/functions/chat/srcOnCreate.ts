@@ -1,10 +1,10 @@
-import { Chat, JoinedChats } from '@try-finger/lib';
+import { Chat } from '@try-finger/lib';
 import { QueryDocumentSnapshot } from 'firebase-admin/firestore';
 import { EventContext, logger } from 'firebase-functions';
 import { HttpsError } from 'firebase-functions/v1/auth';
-import { snapshotToData } from '../helpers/db.js';
-import { runTransaction } from '../helpers/runTransaction.js';
-import { useFirestore } from '../helpers/useFirestore.js';
+import { snapshotToData } from '../../helpers/firestore.js';
+import { runTransaction } from '../../helpers/runTransaction.js';
+import { useDbJoinedChats } from '../../composables/useDbJoinedChats.js';
 
 export const handler = async (snapshot: QueryDocumentSnapshot, context: EventContext) => {
 	const chat = snapshotToData<Chat>(snapshot);
@@ -13,16 +13,10 @@ export const handler = async (snapshot: QueryDocumentSnapshot, context: EventCon
 
 	try {
 		await runTransaction(async (t) => {
-			chat.members.forEach((uid) => {
-				const { setT } = useFirestore<JoinedChats>(`users/${uid}/joinedChats`);
+			chat.members.forEach((userId) => {
+				const { setT } = useDbJoinedChats(userId);
 
-				return setT(
-					chat.id,
-					{
-						name: chat.name,
-					} as JoinedChats,
-					t
-				);
+				return setT(chat.id, { name: chat.name }, t);
 			});
 		});
 	} catch (err) {

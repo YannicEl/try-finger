@@ -1,9 +1,7 @@
-import { BaseDoc, RootCollection, SubCollection } from '@try-finger/lib';
+import { Document } from '@try-finger/lib';
 import { DocumentData, QueryDocumentSnapshot } from 'firebase-admin/firestore';
 
-export const snapshotToData = <
-	T extends (BaseDoc & SubCollection) | (BaseDoc & RootCollection)
->(
+export const snapshotToData = <T extends Document>(
 	snapshot: QueryDocumentSnapshot<DocumentData>
 ): T => {
 	const { createdAt, updatedAt, ...rest } = snapshot.data();

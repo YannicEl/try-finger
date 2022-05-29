@@ -14,3 +14,6 @@ export interface SubCollection {
 }
 export interface RootCollection {
 }
+export declare type Document = (BaseDoc | RootCollection) & (BaseDoc | SubCollection);
+export declare type AddDoc<T> = Omit<T, 'id' | 'parentCol' | 'parentDoc' | 'createdAt' | 'updatedAt'>;
+export declare type UpdateDoc<T> = Partial<Omit<T, 'id' | 'parentCol' | 'parentDoc' | 'createdAt' | 'updatedAt'>>;

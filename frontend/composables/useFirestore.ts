@@ -19,7 +19,7 @@ import {
 	UpdateData,
 } from 'firebase/firestore';
 import { Ref } from 'vue';
-import { BaseDoc, RootCollection, SubCollection } from '@try-finger/lib';
+import { Document, AddDoc, UpdateDoc } from '@try-finger/lib';
 
 export type Collections =
 	| 'chats'
@@ -27,13 +27,17 @@ export type Collections =
 	| `${string}/messages`
 	| `${string}/joinedChats`;
 
-export const useFirestore = <
-	T extends (BaseDoc & SubCollection) | (BaseDoc & RootCollection)
->(
-	path: Collections
-) => {
+export const useFirestore = <T extends Document>(path: Collections) => {
 	const converter: FirestoreDataConverter<T> = {
-		toFirestore: (e: WithFieldValue<T>): DocumentData => e,
+		toFirestore: (e: WithFieldValue<T>): DocumentData => {
+			const { id, parentCol, parentDoc, updatedAt, createdAt, ...rest } = e as any;
+
+			return {
+				...rest,
+				createdAt: createdAt ? createdAt : serverTimestamp(),
+				updatedAt: serverTimestamp(),
+			};
+		},
 		fromFirestore: (snapshot: QueryDocumentSnapshot<DocumentData>): T => {
 			const { createdAt, updatedAt, ...rest } = snapshot.data({
 				serverTimestamps: 'estimate',
@@ -53,35 +57,16 @@ export const useFirestore = <
 	const db = getFirestore(useFirebase());
 	const collection = _collection(db, path).withConverter(converter);
 
-	const add = (
-		body: Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>
-	): Promise<DocumentReference<T>> => {
-		return addDoc<T>(collection, {
-			...body,
-			createdAt: serverTimestamp(),
-			updatedAt: serverTimestamp(),
-		} as WithFieldValue<T>);
+	const add = (body: AddDoc<T>): Promise<DocumentReference<T>> => {
+		return addDoc<T>(collection, body as T);
 	};
 
-	const set = (
-		id: string,
-		body: Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>
-	): Promise<void> => {
-		return setDoc<T>(doc(collection, id), {
-			...body,
-			createdAt: serverTimestamp(),
-			updatedAt: serverTimestamp(),
-		} as WithFieldValue<T>);
+	const set = (id: string, body: AddDoc<T>): Promise<void> => {
+		return setDoc<T>(doc(collection, id), body as T);
 	};
 
-	const update = (
-		id: string,
-		body: Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>
-	): Promise<void> => {
-		return updateDoc<T>(doc(collection, id), {
-			...body,
-			updatedAt: serverTimestamp(),
-		} as UpdateData<T>);
+	const update = (id: string, body: UpdateDoc<T>): Promise<void> => {
+		return updateDoc<T>(doc(collection, id), body as UpdateData<T>);
 	};
 
 	const get = async (id: string): Promise<T | undefined> => {

@@ -3,23 +3,26 @@ import {
 	DocumentReference,
 	FirestoreDataConverter,
 	getFirestore,
-	QueryDocumentSnapshot,
 	WriteResult,
 	Query,
 	Transaction,
 } from 'firebase-admin/firestore';
-import { BaseDoc, SubCollection, RootCollection } from '@try-finger/lib';
+import { Document, AddDoc, UpdateDoc } from '@try-finger/lib';
 import { useFirebase } from './useFirebase.js';
-import { serverTimestamp } from './fieldValues.js';
-import { snapshotToData } from './db.js';
+import { serverTimestamp } from '../helpers/fieldValues.js';
+import { snapshotToData } from '../helpers/firestore.js';
 
-export const useFirestore = <
-	T extends (BaseDoc & SubCollection) | (BaseDoc & RootCollection)
->(
-	path: string
-) => {
+export const useFirestore = <T extends Document>(path: string) => {
 	const converter: FirestoreDataConverter<T> = {
-		toFirestore: (e: T): DocumentData => e,
+		toFirestore: (e: T): DocumentData => {
+			const { id, parentCol, parentDoc, updatedAt, createdAt, ...rest } = e as any;
+
+			return {
+				...rest,
+				createdAt: createdAt ? createdAt : serverTimestamp(),
+				updatedAt: serverTimestamp(),
+			};
+		},
 		fromFirestore: snapshotToData,
 	};
 
@@ -29,67 +32,42 @@ export const useFirestore = <
 	/**
 	 * Add a document with random ID
 	 */
-	const add = (body: T): Promise<DocumentReference<T>> => {
-		return collection.add({
-			...body,
-			createdAt: serverTimestamp(),
-			updatedAt: serverTimestamp(),
-		});
+	const add = (body: AddDoc<T>): Promise<DocumentReference<T>> => {
+		return collection.add(body as T);
 	};
 
 	/**
 	 * Same as add() but for use in a Transaction
 	 */
-	const addT = (body: T, t: Transaction): Transaction => {
-		return t.create(collection.doc(), {
-			...body,
-			createdAt: serverTimestamp(),
-			updatedAt: serverTimestamp(),
-		});
+	const addT = (body: AddDoc<T>, t: Transaction): Transaction => {
+		return t.create(collection.doc(), body as T);
 	};
 
 	/**
 	 * Set a document with given ID
 	 */
-	const set = (id: string, body: T): Promise<WriteResult> => {
-		return collection.doc(id).set({
-			...body,
-			createdAt: serverTimestamp(),
-			updatedAt: serverTimestamp(),
-		});
+	const set = (id: string, body: AddDoc<T>): Promise<WriteResult> => {
+		return collection.doc(id).set(body as T);
 	};
 
 	/**
 	 * Same as set() but for use in a Transaction
 	 */
-	const setT = (id: string, body: T, t: Transaction): Transaction => {
-		console.log({
-			...body,
-			createdAt: serverTimestamp(),
-			updatedAt: serverTimestamp(),
-		});
-
-		return t.set(collection.doc(id), {
-			...body,
-			createdAt: serverTimestamp(),
-			updatedAt: serverTimestamp(),
-		});
+	const setT = (id: string, body: AddDoc<T>, t: Transaction): Transaction => {
+		return t.set(collection.doc(id), body as T);
 	};
 
 	/**
 	 * Update a document
 	 */
-	const update = (id: string, body: T): Promise<WriteResult> => {
-		return collection.doc(id).update({
-			...body,
-			updatedAt: serverTimestamp(),
-		});
+	const update = (id: string, body: UpdateDoc<T>): Promise<WriteResult> => {
+		return collection.doc(id).update(body);
 	};
 
 	/**
 	 * Same as update() but for use in a Transaction
 	 */
-	const updateT = (id: string, body: T, t: Transaction): void => {
+	const updateT = (id: string, body: UpdateDoc<T>, t: Transaction): void => {
 		t.update(collection.doc(id), body);
 	};
 
@@ -128,13 +106,6 @@ export const useFirestore = <
 		t.get;
 		const q = query(collection);
 		return t.get(q).then((e) => e.docs.map((e) => e.data()));
-	};
-
-	const cleanBody = (
-		body: any
-	): Omit<Partial<T>, 'id' | 'createdAt' | 'updatedAt' | 'parentCol' | 'parentDoc'> => {
-		const { id, createdAt, updatedAt, parentCol, parentDoc, ...rest } = body || {};
-		return rest;
 	};
 
 	return {

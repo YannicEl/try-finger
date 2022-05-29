@@ -1,7 +1,7 @@
-import { Message, User } from '@try-finger/lib';
 import { logger, Response, Request } from 'firebase-functions';
-import { runTransaction } from '../helpers/runTransaction.js';
-import { useFirestore } from '../helpers/useFirestore.js';
+import { runTransaction } from '../../helpers/runTransaction.js';
+import { useDbUsers } from '../../composables/useDbUsers.js';
+import { useDbMessages } from '../../composables/useDbMessages.js';
 
 export const handler = async (req: Request, res: Response) => {
 	try {
@@ -9,8 +9,8 @@ export const handler = async (req: Request, res: Response) => {
 		const chatId = '8mnNQLUiZg4kq5GBCHAq';
 		const messageId = 'scxUBW2qyNls0IE2SA0W';
 
-		const dbUser = useFirestore<User>('users');
-		const dbMessage = useFirestore<Message>(`chats/${chatId}/messages`);
+		const dbUser = useDbUsers();
+		const dbMessage = useDbMessages(chatId);
 
 		const user = await dbUser.get(uid);
 		const message = await dbMessage.get(messageId);
@@ -18,7 +18,7 @@ export const handler = async (req: Request, res: Response) => {
 		await runTransaction(async (t) => {
 			const user = await dbUser.getT(uid, t);
 
-			dbUser.updateT(uid, { name: user?.name + 'Yannic' } as User, t);
+			dbUser.updateT(uid, { name: user?.name + 'Yannic' }, t);
 		});
 
 		res.json({ user, message });

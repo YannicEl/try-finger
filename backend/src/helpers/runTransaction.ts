@@ -1,5 +1,5 @@
 import { Transaction } from 'firebase-admin/firestore';
-import { getFirestore } from './useFirebase.js';
+import { getFirestore } from '../composables/useFirebase.js';
 
 export const runTransaction = <F>(
 	transaction: (t: Transaction) => Promise<F>
