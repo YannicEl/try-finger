@@ -9,12 +9,12 @@
 		</div>
 
 		<div class="flex h-12">
-			<button primary btn @click="modal.open">open modal</button>
+			<button primary btn @click="modal?.open">open modal</button>
 		</div>
 
-		<MessagePopup ref="modal"></MessagePopup>
+		<MessagePopup ref="modal" :chatId="chatId"></MessagePopup>
 	</div>
-</template> 
+</template>
 
 <script setup lang="ts">
 import { orderBy } from 'firebase/firestore';
@@ -27,5 +27,5 @@ const messages = dbMessages.listRef([orderBy('createdAt')]);
 
 const chat = useDbChat().getRef(chatId);
 
-const modal = ref<InstanceType<typeof MessagePopup>>(null);
+const modal = ref<InstanceType<typeof MessagePopup> | null>(null);
 </script>

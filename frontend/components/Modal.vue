@@ -7,7 +7,9 @@
 
 				<div class="absolute inset-0 pointer-events-none grid place-items-center">
 					<!-- place modal in the center of the screen -->
-					<div class="pointer-events-auto overflow-hidden max-w-screen-lg max-w-xl w-full bg-dark">
+					<div
+						class="pointer-events-auto overflow-hidden max-w-screen-lg max-w-xl w-full bg-dark"
+					>
 						<slot></slot>
 					</div>
 				</div>
@@ -23,10 +25,15 @@ const props = defineProps<{
 
 const { backdropClass } = toRefs(props);
 
+const emit = defineEmits<{
+	(event: 'close'): void;
+}>();
+
 const isOpen = ref<boolean>(false);
 
 const close = () => {
 	isOpen.value = false;
+	emit('close');
 };
 
 const open = () => {
