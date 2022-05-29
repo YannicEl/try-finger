@@ -20,7 +20,7 @@
 			<button primary btn type="button" id="send" @click="sendMessage">Send</button>
 		</form>
 
-		<form v-if="isSelectingWord" class="bg-blue-500 p-12 h-[70vh] flex flex-col">
+		<form v-if="isSelectingWord" class="p-12 h-[70vh] flex flex-col border">
 			<input
 				type="text"
 				id="search"
@@ -41,7 +41,7 @@
 			</ul>
 
 			<div class="flex max-h-full">
-				<ul class="flex-1">
+				<ul class="overflow-y-auto flex-1">
 					<li
 						btn
 						primary
