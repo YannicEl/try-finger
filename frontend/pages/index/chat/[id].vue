@@ -19,41 +19,13 @@
 <script setup lang="ts">
 import { orderBy } from 'firebase/firestore';
 import MessagePopup from '~~/components/MessagePopup.vue';
-import { templates as templatesList, people as wordsList } from '~~/composables/messages';
 
 const chatId = <string>useRoute().params.id;
 
 const dbMessages = useDbMessage(chatId);
-
-const template = ref('');
-const word = ref('');
-
-const message = ref('');
 const messages = dbMessages.listRef([orderBy('createdAt')]);
 
 const chat = useDbChat().getRef(chatId);
 
 const modal = ref<InstanceType<typeof MessagePopup>>(null);
-
-onKeyStroke('Enter', () => send());
-
-const send = async () => {
-	dbMessages.add({
-		message: message.value,
-		sender: useStore().uid,
-	});
-
-	message.value = '';
-};
-
-const sendTemplate = async () => {
-	dbMessages.add({
-		message: replaceTemplate(template.value, word.value),
-		sender: useStore().uid,
-	});
-};
-
-const replaceTemplate = (template: string, word: string) => {
-	return template.replace('****', word);
-};
 </script>

@@ -57,9 +57,17 @@ interface SearchResult {
 }
 
 const modal = ref<InstanceType<typeof Modal>>(null);
-
 const searchTerm = ref('')
 const searchResults = ref();
+
+const template = ref('');
+
+const selectedWord = ref('');
+const isSelectingWord = ref(false);
+const selectedCategory = ref('');
+
+const chatId = <string>useRoute().params.id;
+const dbMessages = useDbMessage(chatId);
 
 const search = (e: InputEvent) => {
     const searchTerm = (e.target as HTMLInputElement).value;
@@ -75,13 +83,6 @@ const search = (e: InputEvent) => {
         return filtered.length ? { [key]: filtered } : null;
     }).filter((el) => !!el);
 }
-
-const template = ref('');
-
-const selectedWord = ref('');
-const isSelectingWord = ref(false);
-const selectedCategory = ref('');
-
 
 const selectCategory = (key: string) => {
     selectedCategory.value = key;
@@ -99,7 +100,12 @@ const selectWordFromSearch = (res: SearchResult) => {
 }
 
 const sendMessage = () => {
-    console.log(replaceTemplate(template.value, selectedWord.value))
+    dbMessages.add({
+        message: replaceTemplate(template.value, selectedWord.value),
+        sender: useStore().uid,
+    });
+
+    close();
 }
 
 const replaceTemplate = (template: string, word: string) => {
