@@ -2,7 +2,7 @@ import { JoinedChats } from '@try-finger/lib';
 import { useFirestore } from './useFirestore.js';
 
 export const useDbJoinedChats = (userId: string) => {
-	const db = useFirestore<JoinedChats>(`users/${userId}/joinedCHats`);
+	const db = useFirestore<JoinedChats>(`users/${userId}/joinedChats`);
 
 	return { ...db };
 };
