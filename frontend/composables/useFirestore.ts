@@ -17,6 +17,7 @@ import {
 	DocumentData,
 	updateDoc,
 	UpdateData,
+	Unsubscribe,
 } from 'firebase/firestore';
 import { Ref } from 'vue';
 import { Document, AddDoc, UpdateDoc } from '@try-finger/lib';
@@ -56,6 +57,7 @@ export const useFirestore = <T extends Document>(path: Collections) => {
 
 	const db = getFirestore(useFirebase());
 	const collection = _collection(db, path).withConverter(converter);
+	const listeners: Unsubscribe[] = [];
 
 	const add = (body: AddDoc<T>): Promise<DocumentReference<T>> => {
 		return addDoc<T>(collection, body as T);
@@ -73,11 +75,18 @@ export const useFirestore = <T extends Document>(path: Collections) => {
 		return getDoc(doc(collection, id)).then((e) => e?.data());
 	};
 
-	const getRef = (id: string): Ref<T | undefined> => {
+	const getRef = (
+		id: string,
+		callback: (doc: T | undefined) => void = () => {}
+	): Ref<T | undefined> => {
 		const docData = ref<T>();
-		onSnapshot(doc(collection, id), (doc) => {
-			docData.value = doc?.data();
+		const listener = onSnapshot(doc(collection, id), (doc) => {
+			const data = doc?.data();
+			docData.value = data;
+			callback(data);
 		});
+		listeners.push(listener);
+
 		return docData;
 	};
 
@@ -86,14 +95,26 @@ export const useFirestore = <T extends Document>(path: Collections) => {
 		return getDocs(q).then((e) => e.docs.map((e) => e.data()));
 	};
 
-	const listRef = (constraints: QueryConstraint[] = []): Ref<T[]> => {
+	const listRef = (
+		constraints: QueryConstraint[] = [],
+		callback: (docs: T[]) => void = () => {}
+	): Ref<T[]> => {
 		const collectionData = ref([]) as Ref<T[]>;
 		const q = query(collection, ...constraints);
-		onSnapshot(q, (docs) => {
-			collectionData.value = docs.docs.map((e) => e.data());
+		const listener = onSnapshot(q, (docs) => {
+			const data = docs.docs.map((e) => e.data());
+			collectionData.value = data;
+			callback(data);
 		});
+		listeners.push(listener);
+
 		return collectionData;
 	};
+
+	// remove snapshot listeners
+	onUnmounted(() => {
+		listeners.forEach((unsubscribe) => unsubscribe());
+	});
 
 	return { add, set, update, get, getRef, list, listRef };
 };

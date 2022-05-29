@@ -4,7 +4,7 @@
 		<Resizable class="w-120 border-r border-gray-200 flex flex-col">
 			<Menu class="border-b border-gray-200 h-16" />
 
-			<ListView class="flex-1" />
+			<ChatsList class="flex-1" />
 		</Resizable>
 
 		<!-- right column -->
@@ -18,6 +18,11 @@
 definePageMeta({
 	middleware: ['auth'],
 });
+
+const { loadChats } = useStore();
+loadChats();
+
+
 </script>
 
 <style scoped lang="scss"></style>
