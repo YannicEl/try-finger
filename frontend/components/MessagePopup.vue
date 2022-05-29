@@ -27,7 +27,7 @@
             <input type="text" id="search" v-model="searchTerm" @input="search" autocomplete="off" />
             <ul>
                 <li class="cursor-pointer" v-for="res in searchResults" @click="selectWordFromSearch(res)">
-                    {{ Object.entries(res)[0][0] }} > {{ Object.entries(res)[0][1][0] }}
+                    {{ Object.keys(res)[0] }} >> {{ Object.values(res)[0][0] }}
                 </li>
             </ul>
 
@@ -95,7 +95,7 @@ const selectWord = (word: string) => {
 const selectWordFromSearch = (res: SearchResult) => {
     console.log(res);
     searchResults.value = [];
-    selectWord(Object.entries(res)[0][1][0]);
+    selectWord(Object.values(res)[0][0]);
 }
 
 const sendMessage = () => {
