@@ -138,6 +138,7 @@ const sendMessage = async () => {
 	});
 
 	close();
+	modal.value?.close();
 };
 
 const replaceTemplate = (template: string, word: string) => {
@@ -150,7 +151,6 @@ const open = () => {
 
 const close = () => {
 	reset();
-	modal.value?.close();
 	emit('close');
 };
 
