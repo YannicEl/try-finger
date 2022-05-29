@@ -8,33 +8,7 @@
 			</div>
 		</div>
 
-		<div class="flex 1">
-			<label for="templates">
-				<span>Templates</span>
-				<select v-model="template" id="template">
-					<option v-for="template in templatesList">
-						{{ template }}
-					</option>
-				</select>
-			</label>
-
-			<label for="words">
-				<span>Words</span>
-				<select v-model="word" id="word">
-					<option v-for="word in wordsList">
-						{{ word }}
-					</option>
-				</select>
-			</label>
-
-			<button @click="sendTemplate" primary btn>snedd</button>
-		</div>
-
 		<div class="flex h-12">
-			<input type="text" name="message" id="message" class="flex-1" v-model.trim="message" />
-
-			<button primary btn @click="send">sned</button>
-
 			<button primary btn @click="modal.open">open modal</button>
 		</div>
 

@@ -23,17 +23,27 @@
             </button>
         </form>
 
-        <form v-if="isSelectingWord" class="bg-blue-500 p-12 h-[70vh] flex">
-            <ul class="flex-1">
-                <li class="cursor-pointer" v-for="(word, key) in wordsList" @click="selectCategory(key)">
-                    {{ key }}
+        <form v-if="isSelectingWord" class="bg-blue-500 p-12 h-[70vh] flex flex-col">
+            <input type="text" id="search" v-model="searchTerm" @input="search" autocomplete="off" />
+            <ul>
+                <li class="cursor-pointer" v-for="res in searchResults" @click="selectWordFromSearch(res)">
+                    {{ Object.keys(res)[0] }} >> {{ Object.values(res)[0][0] }}
                 </li>
             </ul>
-            <ul class="overflow-y-auto flex-1">
-                <li class="cursor-pointer" v-for="(word, key) in wordsList[selectedCategory]" @click="selectWord(word)">
-                    {{ word }}
-                </li>
-            </ul>
+
+            <div class="flex max-h-full">
+                <ul class="flex-1">
+                    <li class="cursor-pointer" v-for="(word, key) in wordsList" @click="selectCategory(key)">
+                        {{ key }}
+                    </li>
+                </ul>
+                <ul class="overflow-y-auto flex-1">
+                    <li class="cursor-pointer" v-for="(word, key) in wordsList[selectedCategory]"
+                        @click="selectWord(word)">
+                        {{ word }}
+                    </li>
+                </ul>
+            </div>
         </form>
     </Modal>
 </template>
@@ -41,13 +51,37 @@
 <script setup lang="ts">
 import { templates as templatesList, words as wordsList } from '~~/composables/messages';
 import Modal from '~~/components/Modal.vue';
+
+interface SearchResult {
+    [key: string]: string[]
+}
+
 const modal = ref<InstanceType<typeof Modal>>(null);
+
+const searchTerm = ref('')
+const searchResults = ref();
+
+const search = (e: InputEvent) => {
+    const searchTerm = (e.target as HTMLInputElement).value;
+
+    if (!searchTerm) {
+        searchResults.value = [];
+        return;
+    }
+
+    searchResults.value = Object.entries(wordsList).map(([key, value]) => {
+        const filtered = value.filter((e) => e.indexOf(searchTerm) !== -1)
+
+        return filtered.length ? { [key]: filtered } : null;
+    }).filter((el) => !!el);
+}
 
 const template = ref('');
 
+const selectedWord = ref('');
 const isSelectingWord = ref(false);
 const selectedCategory = ref('');
-const selectedWord = ref('');
+
 
 const selectCategory = (key: string) => {
     selectedCategory.value = key;
@@ -56,6 +90,12 @@ const selectCategory = (key: string) => {
 const selectWord = (word: string) => {
     selectedWord.value = word;
     isSelectingWord.value = false;
+}
+
+const selectWordFromSearch = (res: SearchResult) => {
+    console.log(res);
+    searchResults.value = [];
+    selectWord(Object.values(res)[0][0]);
 }
 
 const sendMessage = () => {
