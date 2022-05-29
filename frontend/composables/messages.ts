@@ -430,6 +430,6 @@ export const phrases = [
 	"are you ready?"
 ]
 
-export const words = [
+export const words = {
 	enemies, people, things, battleTactics, actions, situations, places, directions, bodyParts, affinities, concepts, phrases
-]
+}

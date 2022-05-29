@@ -31,29 +31,21 @@
 		</div>
 
 		<div class="flex h-12">
-			<input
-				type="text"
-				name="message"
-				id="message"
-				class="flex-1"
-				v-model.trim="message"
-			/>
+			<input type="text" name="message" id="message" class="flex-1" v-model.trim="message" />
 
 			<button primary btn @click="send">sned</button>
 
 			<button primary btn @click="modal.open">open modal</button>
 		</div>
 
-		<Modal ref="modal" backdrop-class="bg-black/25">
-			<div class="w-40 h-40 bg-red-500 text-2xl">Poggers</div>
-		</Modal>
+		<MessagePopup ref="modal"></MessagePopup>
 	</div>
-</template>
+</template> 
 
 <script setup lang="ts">
 import { orderBy } from 'firebase/firestore';
+import MessagePopup from '~~/components/MessagePopup.vue';
 import { templates as templatesList, people as wordsList } from '~~/composables/messages';
-import Modal from '~~/components/Modal.vue';
 
 const chatId = <string>useRoute().params.id;
 
@@ -67,7 +59,7 @@ const messages = dbMessages.listRef([orderBy('createdAt')]);
 
 const chat = useDbChat().getRef(chatId);
 
-const modal = ref<InstanceType<typeof Modal>>(null);
+const modal = ref<InstanceType<typeof MessagePopup>>(null);
 
 onKeyStroke('Enter', () => send());
 
