@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { orderBy } from 'firebase/firestore';
-import MessagePopup from '~~/components/MessagePopup.vue';
+import MessagePopup from '~~/components/MessagePopup/MessagePopup.vue';
 
 const chatId = <string>useRoute().params.id;
 
