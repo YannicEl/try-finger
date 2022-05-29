@@ -82,10 +82,6 @@ const props = defineProps<{
 
 const { chatId } = toRefs(props);
 
-const emit = defineEmits<{
-	(event: 'close'): void;
-}>();
-
 const modal = ref<InstanceType<typeof Modal> | null>(null);
 const searchTerm = ref('');
 const searchResults = ref();
@@ -151,7 +147,6 @@ const open = () => {
 
 const close = () => {
 	reset();
-	emit('close');
 };
 
 const reset = () => {
