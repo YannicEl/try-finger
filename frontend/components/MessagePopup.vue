@@ -31,7 +31,7 @@
                 </li>
             </ul>
 
-            <div class="flex">
+            <div class="flex max-h-full">
                 <ul class="flex-1">
                     <li class="cursor-pointer" v-for="(word, key) in wordsList" @click="selectCategory(key)">
                         {{ key }}
