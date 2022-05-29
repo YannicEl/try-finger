@@ -60,13 +60,14 @@ const submit = async () => {
 	const chatRef = await chatDb.add({
 		name: chatName,
 		members: [...chatMembers.map((e) => e.uid), uid],
+		creator: uid,
+		admins: [uid],
 	});
 
 	const dbJoinedChats = useDbJoinedChats(uid);
 
 	dbJoinedChats.set(chatRef.id, {
 		name: chatName,
-		lastMsg: 'empty or wqhatvever',
 	});
 
 	navigateTo(`/chat/${chatRef.id}`);
