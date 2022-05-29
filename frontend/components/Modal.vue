@@ -7,7 +7,7 @@
 
 				<div class="absolute inset-0 pointer-events-none grid place-items-center">
 					<!-- place modal in the center of the screen -->
-					<div class="pointer-events-auto overflow-hidden max-w-xl w-full">
+					<div class="pointer-events-auto overflow-hidden max-w-screen-lg max-w-xl w-full bg-dark">
 						<slot></slot>
 					</div>
 				</div>

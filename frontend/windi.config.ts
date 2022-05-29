@@ -11,6 +11,10 @@ export default defineConfig({
 			cursor: {
 				'col-resize': 'col-resize',
 			},
+			colors: {
+				'dark': '#12110f',
+				'yellow-glow': '#5d5c50'
+			}
 		},
 		container: {},
 		fontFamily: {

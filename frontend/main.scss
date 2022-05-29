@@ -8,7 +8,8 @@ html {
 }
 
 a[btn],
-button[btn] {
+button[btn],
+li[btn] {
 	--light-glow: 0px 0px 4px #757573, inset 0px 0px 6px #757573;
 	--heavey-glow: 0px 0px 10px #9c9b8e, inset 0px 0px 22px #9c9b8e;
 

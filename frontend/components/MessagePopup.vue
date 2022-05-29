@@ -1,6 +1,6 @@
 <template>
     <Modal ref="modal" backdrop-class="bg-black/25">
-        <form form v-if="!isSelectingWord" class="bg-red-500 p-12 max-h-9/10">
+        <form form v-if="!isSelectingWord" class="p-12 max-h-9/10 border-4 border-yellow-glow">
             <label for="templates">
                 <span>Templates</span>
                 <select v-model="template" id="template">
@@ -26,19 +26,20 @@
         <form v-if="isSelectingWord" class="bg-blue-500 p-12 h-[70vh] flex flex-col">
             <input type="text" id="search" v-model="searchTerm" @input="search" autocomplete="off" />
             <ul>
-                <li class="cursor-pointer" v-for="res in searchResults" @click="selectWordFromSearch(res)">
+                <li btn primary class="cursor-pointer" v-for="res in searchResults" @click="selectWordFromSearch(res)">
                     {{ Object.keys(res)[0] }} >> {{ Object.values(res)[0][0] }}
                 </li>
             </ul>
 
             <div class="flex max-h-full">
                 <ul class="flex-1">
-                    <li class="cursor-pointer" v-for="(word, key) in wordsList" @click="selectCategory(key)">
+                    <li btn primary class="cursor-pointer my-2" v-for="(word, key) in wordsList"
+                        @click="selectCategory(key)">
                         {{ key }}
                     </li>
                 </ul>
-                <ul class="overflow-y-auto flex-1">
-                    <li class="cursor-pointer" v-for="(word, key) in wordsList[selectedCategory]"
+                <ul class="overflow-y-auto flex-1 ml-4">
+                    <li btn primary class="cursor-pointer my-2" v-for="(word, key) in wordsList[selectedCategory]"
                         @click="selectWord(word)">
                         {{ word }}
                     </li>
