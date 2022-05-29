@@ -1,5 +1,5 @@
 <template>
-	<Modal ref="modal" backdrop-class="bg-black/25" @close="close">
+	<Modal ref="modal" backdrop-class="bg-black/25" @close="close(true)">
 		<form form v-if="!isSelectingWord" class="p-12 max-h-9/10 border">
 			<label for="templates">
 				<span>Templates</span>
@@ -81,6 +81,7 @@ const props = defineProps<{
 }>();
 
 const { chatId } = toRefs(props);
+const dbMessage = useDbMessage(chatId.value);
 
 const modal = ref<InstanceType<typeof Modal> | null>(null);
 const searchTerm = ref('');
@@ -126,15 +127,13 @@ const selectWordFromSearch = (res: SearchResult) => {
 
 const sendMessage = async () => {
 	const { uid } = useStore();
-	const { add } = useDbMessage(chatId.value);
 
-	await add({
+	dbMessage.add({
 		message: replaceTemplate(template.value, selectedWord.value),
 		sender: uid,
 	});
 
 	close();
-	modal.value?.close();
 };
 
 const replaceTemplate = (template: string, word: string) => {
@@ -145,7 +144,8 @@ const open = () => {
 	modal.value?.open();
 };
 
-const close = () => {
+const close = (fromEvent = false) => {
+	if (!fromEvent) modal.value?.close();
 	reset();
 };
 

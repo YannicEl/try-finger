@@ -3,7 +3,7 @@
 		<Transition name="fade">
 			<div class="fixed inset-0 z-1000" :class="backdropClass" v-if="isOpen">
 				<!-- backdrop -->
-				<div class="absolute inset-0 pointer-events-auto" @click="close"></div>
+				<div class="absolute inset-0 pointer-events-auto" @click="close()"></div>
 
 				<div class="absolute inset-0 pointer-events-none grid place-items-center">
 					<!-- place modal in the center of the screen -->
