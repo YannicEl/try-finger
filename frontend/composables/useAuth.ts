@@ -21,6 +21,8 @@ export const useAuth = () => {
 			if (user) {
 				const store = useStore();
 				store.uid = user.uid;
+			} else {
+				useStore().$reset();
 			}
 		});
 	}

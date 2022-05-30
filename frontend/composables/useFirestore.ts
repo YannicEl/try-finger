@@ -101,8 +101,8 @@ export const useFirestore = <T extends Document>(path: Collections) => {
 	): Ref<T[]> => {
 		const collectionData = ref([]) as Ref<T[]>;
 		const q = query(collection, ...constraints);
-		const listener = onSnapshot(q, (docs) => {
-			const data = docs.docs.map((e) => e.data());
+		const listener = onSnapshot(q, ({ docs }) => {
+			const data = docs.map((e) => e.data());
 			collectionData.value = data;
 			callback(data);
 		});
@@ -112,9 +112,9 @@ export const useFirestore = <T extends Document>(path: Collections) => {
 	};
 
 	// remove snapshot listeners
-	onUnmounted(() => {
+	const unsubscribe = (): void => {
 		listeners.forEach((unsubscribe) => unsubscribe());
-	});
+	};
 
-	return { add, set, update, get, getRef, list, listRef };
+	return { add, set, update, get, getRef, list, listRef, unsubscribe };
 };

@@ -20,9 +20,8 @@ definePageMeta({
 });
 
 const { loadChats } = useStore();
+
 loadChats();
-
-
 </script>
 
 <style scoped lang="scss"></style>

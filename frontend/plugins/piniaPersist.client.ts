@@ -1,4 +1,5 @@
 import { Pinia, PiniaPlugin } from 'pinia';
+import { Timer } from '@try-finger/lib';
 
 const PERSIST_KEY = 'piniaState';
 
@@ -28,9 +29,13 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 	// recover state after app is mounted to prevent hydration errors
 	nuxtApp.hook('app:mounted', () => {
+		const timer = new Timer();
+
 		const restoredState = getItem(PERSIST_KEY);
 		if (restoredState) {
 			useStore().$state = restoredState.main;
+
+			console.log(`State restore took ${timer.time()} ms`);
 		} else {
 			setItem(PERSIST_KEY, pinia.state.value);
 		}
