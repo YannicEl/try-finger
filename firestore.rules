@@ -15,7 +15,7 @@ service cloud.firestore {
           allow list: if request.auth.uid == userId 
 
           // only allow users to create their own joinedChats
-          allow create: if request.auth.uid == userId && verifyCreateFields(["name"]);
+          allow create: if request.auth.uid == userId && verifyCreateFields(["name"], []);
         }
       }
 
