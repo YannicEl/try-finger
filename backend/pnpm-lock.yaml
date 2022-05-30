@@ -2,12 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   '@try-finger/lib': file:../lib
+  deep-object-diff: ^1.1.7
   firebase-admin: ^10.2.0
   firebase-functions: 3.21.2
   firebase-tools: 11.0.1
   typescript: 4.7.2
 
 dependencies:
+  deep-object-diff: 1.1.7
   firebase-admin: 10.2.0
   firebase-functions: 3.21.2_firebase-admin@10.2.0
 
@@ -1360,6 +1362,10 @@ packages:
   /deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
+
+  /deep-object-diff/1.1.7:
+    resolution: {integrity: sha512-QkgBca0mL08P6HiOjoqvmm6xOAl2W6CT2+34Ljhg0OeFan8cwlcdq8jrLKsBBuUFAZLsN5b6y491KdKEoSo9lg==}
+    dev: false
 
   /defaults/1.0.3:
     resolution: {integrity: sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=}
