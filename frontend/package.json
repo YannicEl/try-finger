@@ -8,7 +8,7 @@
 		"deploy:prod": "wrangler publish --env prod"
 	},
 	"devDependencies": {
-		"@unocss/nuxt": "^0.37.0",
+		"@unocss/nuxt": "^0.37.1",
 		"nuxt": "3.0.0-rc.3",
 		"nuxt-windicss": "^2.3.2",
 		"prettier": "^2.6.2",
@@ -18,7 +18,7 @@
 	"dependencies": {
 		"@pinia/nuxt": "^0.1.9",
 		"@try-finger/lib": "workspace:*",
-		"@vueuse/nuxt": "^8.5.0",
+		"@vueuse/nuxt": "^8.6.0",
 		"firebase": "^9.8.2",
 		"pinia": "^2.0.14"
 	},
