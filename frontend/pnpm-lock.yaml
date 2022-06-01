@@ -7,7 +7,7 @@ specifiers:
   '@vueuse/nuxt': ^8.6.0
   firebase: ^9.8.2
   nuxt: 3.0.0-rc.3
-  nuxt-windicss: ^2.3.2
+  nuxt-windicss: ^2.4.0
   pinia: ^2.0.14
   prettier: ^2.6.2
   sass: ^1.52.1
@@ -23,7 +23,7 @@ dependencies:
 devDependencies:
   '@unocss/nuxt': 0.37.1
   nuxt: 3.0.0-rc.3_sass@1.52.1
-  nuxt-windicss: 2.3.2
+  nuxt-windicss: 2.4.0
   prettier: 2.6.2
   sass: 1.52.1
   wrangler: 2.0.7
@@ -2761,7 +2761,7 @@ packages:
     dev: true
 
   /ee-first/1.1.1:
-    resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
+    resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
   /electron-to-chromium/1.4.137:
@@ -2776,7 +2776,7 @@ packages:
     dev: true
 
   /encodeurl/1.0.2:
-    resolution: {integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=}
+    resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
     engines: {node: '>= 0.8'}
     dev: true
 
@@ -3238,7 +3238,7 @@ packages:
     engines: {node: '>=6'}
 
   /escape-html/1.0.3:
-    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=}
+    resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
     dev: true
 
   /escape-string-regexp/1.0.5:
@@ -4316,7 +4316,7 @@ packages:
     dev: true
 
   /ms/2.0.0:
-    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
+    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
     dev: true
 
   /ms/2.1.2:
@@ -4579,8 +4579,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-windicss/2.3.2:
-    resolution: {integrity: sha512-nyFGK55W6NrfXQ7PkIGtDJO7zsSAMVmZThJCRjhtkJjLv+/a5WDMb/HS70k12Pwtkl0Y/kRHdr0CrJMM94Sm4A==}
+  /nuxt-windicss/2.4.0:
+    resolution: {integrity: sha512-Dge5ARm0Fx1tYU4DY5Q6u0r/64Zcwi9tUKP5A8eYCHwdR3FBo3vurL5m5JerPV97Q5xCh8Q8P/+6tTRV3pY3Zg==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.3
       '@windicss/plugin-utils': 1.8.4
@@ -4685,7 +4685,7 @@ packages:
     dev: true
 
   /on-finished/2.3.0:
-    resolution: {integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=}
+    resolution: {integrity: sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww==}
     engines: {node: '>= 0.8'}
     dependencies:
       ee-first: 1.1.1
