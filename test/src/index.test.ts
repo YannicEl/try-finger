@@ -1,15 +1,16 @@
 import { beforeEach, describe, it } from 'vitest';
 import { initializeTestEnvironment, assertFails } from '@firebase/rules-unit-testing';
 import { getDoc, doc } from 'firebase/firestore';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 beforeEach(async (context) => {
-	console.log(process.env.FIREBASE_PROJECT_ID);
-	const projectId = process.env.FIREBASE_PROJECT_ID;
-
 	const app = await initializeTestEnvironment({
-		projectId,
+		projectId: process.env.FIREBASE_PROJECT_ID,
 		firestore: { host: 'localhost', port: 8080 },
 	});
+
 	const db = app.unauthenticatedContext().firestore();
 
 	context.app = app;

@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@firebase/rules-unit-testing': ^2.0.2
+  dotenv: ^16.0.1
   firebase: ^9.8.2
   firebase-tools: 11.0.1
   vitest: ^0.13.1
@@ -11,6 +12,7 @@ dependencies:
   firebase: 9.8.2
 
 devDependencies:
+  dotenv: 16.0.1
   firebase-tools: 11.0.1
   vitest: 0.13.1
 
@@ -1767,6 +1769,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       is-obj: 2.0.0
+    dev: true
+
+  /dotenv/16.0.1:
+    resolution: {integrity: sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==}
+    engines: {node: '>=12'}
     dev: true
 
   /duplexer2/0.1.4:
