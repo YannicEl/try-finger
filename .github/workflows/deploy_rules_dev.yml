@@ -19,8 +19,6 @@ jobs:
     defaults:
       run:
         working-directory: test
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
     steps:
       - name: Checkout
@@ -43,6 +41,10 @@ jobs:
 
       - name: Run Tests
         run: pnpm run test:dev
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Deploy
         run: firebase deploy --only storage,firestore --project dev
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
