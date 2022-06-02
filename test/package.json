@@ -11,7 +11,7 @@
 		"serve:prod": "firebase emulators:start --only firestore --project prod"
 	},
 	"devDependencies": {
-		"firebase-admin": "^10.2.0",
+		"firebase-tools": "11.0.1",
 		"vitest": "^0.13.1"
 	},
 	"dependencies": {
