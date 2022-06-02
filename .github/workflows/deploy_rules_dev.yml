@@ -12,6 +12,11 @@ on:
 jobs:
   deploy_rules:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: test
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -29,10 +34,10 @@ jobs:
           cache-dependency-path: test/pnpm-lock.yaml
 
       - name: Install dependencies
-        run: cd test/; pnpm --filter test i
+        run: pnpm --filter test i
 
       - name: Run Tests
-        run: cd test/; pnpm run test:dev
+        run: pnpm run test:dev
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
