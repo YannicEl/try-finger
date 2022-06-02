@@ -9,8 +9,14 @@ on:
 jobs:
   deploy_backend:
     runs-on: ubuntu-latest
+
     environment:
       name: prod
+
+    defaults:
+      run:
+        working-directory: backend
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,9 +34,9 @@ jobs:
           cache-dependency-path: backend/pnpm-lock.yaml
 
       - name: Install dependencies
-        run: cd backend/; pnpm --filter backend i
+        run: pnpm --filter backend i
 
       - name: Deploy
-        run: cd backend/; pnpm run deploy:prod
+        run: pnpm run deploy:prod
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
