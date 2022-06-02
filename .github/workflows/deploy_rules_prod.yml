@@ -1,8 +1,8 @@
-name: Deploy Firebase Rules DEV
+name: Deploy Firebase Rules PROD
 
 on:
   push:
-    branches: [dev]
+    branches: [prod]
     paths:
       - 'firestore.indexes.json'
       - 'firestore.rules'
