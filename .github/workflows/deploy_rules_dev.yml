@@ -42,6 +42,6 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Deploy
-        run: pnpm run firebase deploy --only storage,firestore --project dev
+        run: firebase deploy --only storage,firestore --project dev
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
