@@ -27,7 +27,7 @@ const unwrap = async (promise: Promise<any>): Promise<[res: any, error: any]> =>
 describe('firestore rules', () => {
 	it('users should only be able to update their own user document', async ({ db }) => {
 		const [res, error] = await unwrap(
-			getDoc(doc(db, 'users/aHs3bc4D0Ge3OJhzIXai7dckqc92'))
+			getDoc(doc(db, 'users/aHs3bc4D0Ge3OJhzIXai7dckqc921'))
 		);
 
 		expect(error?.code).toBe('permission-denied');

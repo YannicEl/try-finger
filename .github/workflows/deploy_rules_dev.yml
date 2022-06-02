@@ -33,10 +33,10 @@ jobs:
 
       - name: Run Tests
         run: cd test/; pnpm run test:dev
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Deploy
-        uses: w9jds/firebase-action@v2.1.2
-        with:
-          args: deploy --only storage,firestore --project dev
+        run: pnpm run firebase deploy --only storage,firestore --project dev
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
