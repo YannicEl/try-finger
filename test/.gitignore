@@ -1,6 +1,7 @@
 .pnpm-debug.log
 firestore-debug.log
 ui-debug.log
+firebase-debug.log
 
 # Node.js dependency directory
 node_modules/

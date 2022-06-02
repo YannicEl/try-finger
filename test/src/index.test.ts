@@ -1,9 +1,10 @@
-import { beforeEach, describe, expect, it } from 'vitest';
-import { initializeTestEnvironment } from '@firebase/rules-unit-testing';
+import { beforeEach, describe, it } from 'vitest';
+import { initializeTestEnvironment, assertFails } from '@firebase/rules-unit-testing';
 import { getDoc, doc } from 'firebase/firestore';
 
 beforeEach(async (context) => {
-	const projectId = 'try-finger-dev';
+	console.log(process.env.FIREBASE_PROJECT_ID);
+	const projectId = process.env.FIREBASE_PROJECT_ID;
 
 	const app = await initializeTestEnvironment({
 		projectId,
@@ -15,21 +16,8 @@ beforeEach(async (context) => {
 	context.db = db;
 });
 
-const unwrap = async (promise: Promise<any>): Promise<[res: any, error: any]> => {
-	try {
-		const data = await promise;
-		return [data, null];
-	} catch (err) {
-		return [null, err];
-	}
-};
-
 describe('firestore rules', () => {
 	it('users should only be able to update their own user document', async ({ db }) => {
-		const [res, error] = await unwrap(
-			getDoc(doc(db, 'users/aHs3bc4D0Ge3OJhzIXai7dckqc92'))
-		);
-
-		expect(error?.code).toBe('permission-denied');
+		await assertFails(getDoc(doc(db, 'users/aHs3bc4D0Ge3OJhzIXai7dckqc92')));
 	});
 });
