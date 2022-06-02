@@ -1,0 +1,29 @@
+{
+	"name": "test",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test:dev": "firebase emulators:exec --only firestore --project dev \"vitest run\"",
+		"test:prod": "firebase emulators:exec --only firestore --project prod \"vitest run\"",
+		"watch": "vitest watch",
+		"serve:dev": "firebase emulators:start --only firestore --project dev",
+		"serve:prod": "firebase emulators:start --only firestore --project prod"
+	},
+	"devDependencies": {
+		"firebase-admin": "^10.2.0",
+		"vitest": "^0.13.1"
+	},
+	"dependencies": {
+		"@firebase/rules-unit-testing": "^2.0.2",
+		"firebase": "^9.8.2"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"@firebase/app-compat",
+				"@firebase/app-types"
+			]
+		}
+	}
+}
