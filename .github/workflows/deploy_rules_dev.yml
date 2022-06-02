@@ -44,7 +44,9 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-      - name: Deploy
-        run: firebase deploy --only storage,firestore --project dev
+      - name: Deploy Rules
+        uses: w9jds/firebase-action@v2.1.2
+        with:
+          args: deploy --only storage,firestore --project dev
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

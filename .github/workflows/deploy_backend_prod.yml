@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: pnpm --filter backend i
 
-      - name: Deploy
+      - name: Deploy Backend
         run: pnpm run deploy:prod
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

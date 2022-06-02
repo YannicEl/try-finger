@@ -30,8 +30,6 @@ describe('firestore rules', () => {
 			getDoc(doc(db, 'users/aHs3bc4D0Ge3OJhzIXai7dckqc92'))
 		);
 
-		console.log('1');
-
 		expect(error?.code).toBe('permission-denied');
 	});
 });

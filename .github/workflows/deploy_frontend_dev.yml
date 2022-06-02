@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: pnpm --filter frontend i
 
-      - name: Deploy
+      - name: Deploy Frontend
         run: pnpm run deploy:dev
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

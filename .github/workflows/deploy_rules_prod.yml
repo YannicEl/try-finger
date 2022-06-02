@@ -1,21 +1,50 @@
-name: Deploy Firebase Rules PROD
+name: Deploy Firebase Rules DEV
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
     paths:
       - 'firestore.indexes.json'
       - 'firestore.rules'
       - 'storage.rules'
+      - 'test/**'
 
 jobs:
   deploy_rules:
     runs-on: ubuntu-latest
+
+    environment:
+      name: prod
+
+    defaults:
+      run:
+        working-directory: test
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Deploy
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'pnpm'
+          cache-dependency-path: test/pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm --filter test i
+
+      - name: Run Tests
+        run: pnpm run test:prod
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Deploy Rules
         uses: w9jds/firebase-action@v2.1.2
         with:
           args: deploy --only storage,firestore --project prod
