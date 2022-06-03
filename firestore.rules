@@ -6,13 +6,16 @@ service cloud.firestore {
       allow read, write: if false;
 
       match /users/{userId} {
-        // only allow users to get + create their own user document
-        allow get, create: if request.auth.uid == userId 
+        // only allow users to get their own user document
+        allow get: if request.auth.uid == userId;
+
+        // only allow users to create their own user document with 
+        allow create: if request.auth.uid == userId
           && verifyCreateFields([], ["name"]);
 
         match /joinedChats/{chatId} {
           // only allow users to list their own joinedChats
-          allow list: if request.auth.uid == userId 
+          allow list: if request.auth.uid == userId;
 
           // only allow users to create their own joinedChats
           allow create: if request.auth.uid == userId && verifyCreateFields(["name"], []);
@@ -21,7 +24,7 @@ service cloud.firestore {
 
       match /chats/{chatId} {
         // allow everybody to create new chats
-        allow create: if verifyCreateFields(["name", "members", "creator", "admins"], []);
+        allow create: if isAuth() && verifyCreateFields(["name", "members", "creator", "admins"], []);
 
         // only allow users to get chats where they are a member
         allow get: if request.auth.uid in resource.data.members
@@ -36,14 +39,19 @@ service cloud.firestore {
             && verifyCreateFields(["sender", "message"], [])
 
           // only allow users to delete messages that they wrote
-          allow delete: if resource.data.sender == request.auth.uid;
+          allow delete: if request.auth.uid == resource.data.sender;
 
           // only allow users to update the "message" field on their own messages 
-          allow update: if resource.data.sender == request.auth.uid 
+          allow update: if request.auth.uid == resource.data.sender 
             && verifyUpdateFields(["message"]);
         }
       }
     }
+  }
+
+  // verifies that user is logged in
+  function isAuth() {
+    return request.auth != null
   }
 
   // verifies that only required or optional fields are written on create

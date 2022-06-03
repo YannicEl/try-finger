@@ -5,5 +5,6 @@ declare module 'vitest' {
 	export interface TestContext {
 		app: RulesTestEnvironment;
 		db: firebase.firestore.Firestore;
+		getAuthDb: (uid: string) => firebase.firestore.Firestore;
 	}
 }

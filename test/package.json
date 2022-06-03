@@ -4,9 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+		"watch": "vitest",
 		"test:dev": "firebase emulators:exec --only firestore --project dev \"vitest run\"",
 		"test:prod": "firebase emulators:exec --only firestore --project prod \"vitest run\"",
-		"watch": "vitest watch",
 		"serve:dev": "firebase emulators:start --only firestore --project dev",
 		"serve:prod": "firebase emulators:start --only firestore --project prod"
 	},
