@@ -1,9 +1,9 @@
 {
 	"name": "frontend",
 	"scripts": {
-		"build": "nuxt build",
 		"dev": "nuxt dev",
-		"serve": "miniflare ./.output/server/index.mjs --site ./.output/public",
+		"dev:worker": "wrangler dev",
+		"build": "nuxt build",
 		"deploy:dev": "wrangler publish --env dev",
 		"deploy:prod": "wrangler publish --env prod"
 	},
