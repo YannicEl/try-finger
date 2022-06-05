@@ -24,7 +24,11 @@ service cloud.firestore {
 
       match /chats/{chatId} {
         // allow everybody to create new chats
-        allow create: if isAuth() && verifyCreateFields(["name", "members", "creator", "admins"], []);
+        allow create: if isAuth() 
+          && verifyCreateFields(["name", "members", "creator", "admins"], []) 
+          && request.auth.uid == request.resource.data.creator
+          && request.auth.uid in request.resource.data.members
+          && request.auth.uid in request.resource.data.admins;
 
         // only allow users to get chats where they are a member
         allow get: if request.auth.uid in resource.data.members
@@ -65,7 +69,7 @@ service cloud.firestore {
   // verifies that only allowed fields are updated
   function verifyUpdateFields(allowed) {
     // field "updatedAt" is always allowed
-    let changedFields = request.resource.data.diff(resource.data).affectedKeys().concat(["updatedAt"]);
-    return changedFields.hasOnly(allowed);
+    let changedFields = request.resource.data.diff(resource.data).affectedKeys();
+    return changedFields.hasOnly(allowed.concat(["updatedAt"]));
   }
 }
