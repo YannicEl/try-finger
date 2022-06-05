@@ -3,7 +3,7 @@ import { runTransaction } from '../../helpers/runTransaction.js';
 import { useDbUsers } from '../../composables/useDbUsers.js';
 import { useDbMessages } from '../../composables/useDbMessages.js';
 
-export const handler = async (req: Request, res: Response) => {
+export default async (req: Request, res: Response) => {
 	try {
 		const uid = 'GLeYV5SDD4e8WqseXPrky5KVz2B2';
 		const chatId = '8mnNQLUiZg4kq5GBCHAq';

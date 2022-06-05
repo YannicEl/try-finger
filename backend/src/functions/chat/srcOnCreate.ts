@@ -6,7 +6,7 @@ import { snapshotToData } from '../../helpers/firestore.js';
 import { runTransaction } from '../../helpers/runTransaction.js';
 import { useDbJoinedChats } from '../../composables/useDbJoinedChats.js';
 
-export const handler = async (snapshot: QueryDocumentSnapshot, context: EventContext) => {
+export default async (snapshot: QueryDocumentSnapshot, context: EventContext) => {
 	const chat = snapshotToData<Chat>(snapshot);
 
 	logger.info(chat);

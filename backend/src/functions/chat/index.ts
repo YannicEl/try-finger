@@ -1,6 +1,6 @@
 import { region } from 'firebase-functions';
-import { handler as onCreate } from './srcOnCreate.js';
-import { handler as onUpdate } from './srcOnUpdate.js';
+import onCreate from './srcOnCreate.js';
+import onUpdate from './srcOnUpdate.js';
 
 export const chat = {
 	onCreate: region('europe-west1')

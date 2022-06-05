@@ -7,10 +7,7 @@ import { updatedDiff } from 'deep-object-diff';
 import { useDbJoinedChats } from '../../composables/useDbJoinedChats.js';
 import { runTransaction } from '../../helpers/runTransaction.js';
 
-export const handler = async (
-	change: Change<QueryDocumentSnapshot>,
-	context: EventContext
-) => {
+export default async (change: Change<QueryDocumentSnapshot>, context: EventContext) => {
 	const before = snapshotToData<Chat>(change.before);
 	const after = snapshotToData<Chat>(change.after);
 	const updated = updatedDiff(before, after) as Partial<Chat>;
