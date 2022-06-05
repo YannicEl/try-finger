@@ -210,6 +210,7 @@ describe('Collection: chats/', () => {
 			await setupTestData(ctx);
 
 			await assertSucceeds(getDoc(myDb, `chats/${myChatId}`));
+      console.log("2 ----------")
 			await assertSucceeds(getDoc(myDb, `chats/${ourChatId}`));
 		});
 
