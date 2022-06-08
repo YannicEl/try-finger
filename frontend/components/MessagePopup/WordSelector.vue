@@ -1,52 +1,58 @@
 <template>
-	<form class="p-12 h-[70vh] flex flex-col border">
-		<input
-			type="text"
-			id="search"
-			v-model="searchTerm"
-			@input="search"
-			autocomplete="off"
-		/>
-		<ul>
-			<li
-				btn
-				primary
-				class="cursor-pointer"
-				v-for="res in searchResults"
-				@click="selectWordFromSearch(res)"
-			>
-				{{ Object.keys(res)[0] }} >> {{ Object.values(res)[0][0] }}
-			</li>
-		</ul>
+	<button primary btn @click="modal?.open">{{ modelValue || 'Select' }}</button>
 
-		<div class="flex max-h-full">
-			<ul class="overflow-y-auto flex-1">
+	<Modal ref="modal" backdrop-class="bg-black/25">
+		<div class="p-12 h-[70vh] flex flex-col border">
+			<input
+				type="text"
+				id="search"
+				v-model="searchTerm"
+				@input="search"
+				autocomplete="off"
+			/>
+
+			<ul>
 				<li
 					btn
 					primary
-					class="cursor-pointer my-2"
-					v-for="(word, key) in wordsList"
-					@click="selectCategory(key)"
+					class="cursor-pointer"
+					v-for="res in searchResults"
+					@click="selectWordFromSearch(res)"
 				>
-					{{ key }}
+					{{ Object.keys(res)[0] }} >> {{ Object.values(res)[0][0] }}
 				</li>
 			</ul>
-			<ul class="overflow-y-auto flex-1 ml-4">
-				<li
-					btn
-					primary
-					class="cursor-pointer my-2"
-					v-for="(word, key) in wordsList[selectedCategory]"
-					@click="selectWord(word)"
-				>
-					{{ word }}
-				</li>
-			</ul>
+
+			<div class="flex max-h-full">
+				<ul class="overflow-y-auto flex-1">
+					<li
+						btn
+						primary
+						class="cursor-pointer my-2"
+						v-for="(word, key) in wordsList"
+						@click="selectCategory(key)"
+					>
+						{{ key }}
+					</li>
+				</ul>
+				<ul class="overflow-y-auto flex-1 ml-4">
+					<li
+						btn
+						primary
+						class="cursor-pointer my-2"
+						v-for="(word, key) in wordsList[selectedCategory]"
+						@click="selectWord(word)"
+					>
+						{{ word }}
+					</li>
+				</ul>
+			</div>
 		</div>
-	</form>
+	</Modal>
 </template>
 
 <script setup lang="ts">
+import Modal from '~~/components/Modal.vue';
 import { words as wordsList } from '~~/composables/messages';
 const searchTerm = ref('');
 const searchResults = ref();
@@ -56,12 +62,28 @@ interface SearchResult {
 	[key: string]: string[];
 }
 
+const props = withDefaults(
+	defineProps<{
+		modelValue?: string;
+	}>(),
+	{ modelValue: null }
+);
+const { modelValue } = toRefs(props);
+
+const modal = ref<InstanceType<typeof Modal> | null>(null);
+
 const selectCategory = (key: string) => {
 	selectedCategory.value = key;
 };
 
+const emit = defineEmits<{
+	(event: 'update:modelValue', value: string): void;
+}>();
+
 const selectWord = (word: string) => {
-	emit('select-word', word);
+	emit('update:modelValue', word);
+	modelValue.modelValue = word;
+	modal.value?.close();
 };
 
 const selectWordFromSearch = (res: SearchResult) => {
@@ -85,8 +107,4 @@ const search = (e: InputEvent) => {
 		})
 		.filter((el) => !!el);
 };
-
-const emit = defineEmits<{
-	(e: 'select-word', value: string): void;
-}>();
 </script>

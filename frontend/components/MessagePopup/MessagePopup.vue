@@ -1,45 +1,61 @@
 <template>
 	<Modal ref="modal" backdrop-class="bg-black/25" @close="close(true)">
-		<form form v-if="!isSelectingWord" class="p-12 max-h-9/10 border">
-			<label for="templates">
-				<span>Templates</span>
-				<select v-model="template" id="template">
-					<option v-for="template in templatesList">
-						{{ template }}
-					</option>
-				</select>
+		<form class="ui-border ui-fade p-4" form @submit.prevent="submit">
+			<label for="template">
+				<span>Template</span>
+				<TemplateSelector name="template" v-model="form.template" />
 			</label>
 
-			<label for="words">
-				<span>Words</span>
-				<button primary btn type="button" id="words" @click="isSelectingWord = true">
-					{{ selectedWord || 'Select' }}
-				</button>
+			<label for="word">
+				<span>Word</span>
+				<WordSelector v-model="form.word" />
 			</label>
 
-			<button primary btn type="button" id="send" @click="sendMessage">Send</button>
+			<button primary btn @click="sendMessage">Send</button>
 		</form>
-
-		<WordSelector v-if="isSelectingWord" @select-word="selectWord"></WordSelector>
 	</Modal>
 </template>
 
 <script setup lang="ts">
-import { templates as templatesList } from '~~/composables/messages';
 import Modal from '~~/components/Modal.vue';
+import TemplateSelector from '~~/components/MessagePopup/TemplateSelector.vue';
 import WordSelector from '~~/components/MessagePopup/WordSelector.vue';
 
 const props = defineProps<{
 	chatId: string;
 }>();
 
+const form = ref<{
+	template: string;
+	word: string;
+}>({
+	template: '',
+	word: '',
+});
+
+const submit = () => {
+	const { uid } = useStore();
+
+	console.log(form.value);
+
+	const { template, word } = form.value;
+
+	if (!template || !word) return;
+
+	dbMessage.add({
+		message: replaceTemplate(template, word),
+		sender: uid,
+	});
+
+	close();
+};
+
 const { chatId } = toRefs(props);
 const dbMessage = useDbMessage(chatId.value);
 
 const modal = ref<InstanceType<typeof Modal> | null>(null);
 
-const template = ref('');
-
+const selectedTemplate = ref('');
 const selectedWord = ref('');
 const isSelectingWord = ref(false);
 
@@ -48,15 +64,8 @@ const selectWord = (word: string) => {
 	isSelectingWord.value = false;
 };
 
-const sendMessage = async () => {
-	const { uid } = useStore();
-
-	dbMessage.add({
-		message: replaceTemplate(template.value, selectedWord.value),
-		sender: uid,
-	});
-
-	close();
+const selectTemplate = (template: string) => {
+	selectedTemplate.value = template;
 };
 
 const replaceTemplate = (template: string, word: string) => {
@@ -75,7 +84,7 @@ const close = (fromEvent = false) => {
 const reset = () => {
 	isSelectingWord.value = false;
 	selectedWord.value = '';
-	template.value = '';
+	selectedTemplate.value = '';
 };
 
 defineExpose({

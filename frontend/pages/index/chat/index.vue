@@ -7,7 +7,7 @@
 
 			<label for="chatName">
 				<span>Name</span>
-				<input type="text" name="chatName" id="chatName" v-model.trim="form.chatName" />
+				<input type="text" name="chatName" id="chatName" v-model="form.chatName" />
 			</label>
 
 			<div class="flex flex-row">
