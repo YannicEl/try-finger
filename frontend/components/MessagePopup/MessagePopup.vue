@@ -18,12 +18,13 @@
 
 <script setup lang="ts">
 import Modal from '~~/components/Modal.vue';
-import TemplateSelector from '~~/components/MessagePopup/TemplateSelector.vue';
-import WordSelector from '~~/components/MessagePopup/WordSelector.vue';
 
 const props = defineProps<{
 	chatId: string;
 }>();
+const { chatId } = toRefs(props);
+
+const modal = ref<InstanceType<typeof Modal> | null>(null);
 
 const form = ref<{
 	template: string;
@@ -42,30 +43,14 @@ const submit = () => {
 
 	if (!template || !word) return;
 
+	const dbMessage = useDbMessage(chatId.value);
+
 	dbMessage.add({
 		message: replaceTemplate(template, word),
 		sender: uid,
 	});
 
 	close();
-};
-
-const { chatId } = toRefs(props);
-const dbMessage = useDbMessage(chatId.value);
-
-const modal = ref<InstanceType<typeof Modal> | null>(null);
-
-const selectedTemplate = ref('');
-const selectedWord = ref('');
-const isSelectingWord = ref(false);
-
-const selectWord = (word: string) => {
-	selectedWord.value = word;
-	isSelectingWord.value = false;
-};
-
-const selectTemplate = (template: string) => {
-	selectedTemplate.value = template;
 };
 
 const replaceTemplate = (template: string, word: string) => {
@@ -82,9 +67,8 @@ const close = (fromEvent = false) => {
 };
 
 const reset = () => {
-	isSelectingWord.value = false;
-	selectedWord.value = '';
-	selectedTemplate.value = '';
+	form.value.template = '';
+	form.value.word = '';
 };
 
 defineExpose({
