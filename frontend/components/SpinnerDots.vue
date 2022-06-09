@@ -7,15 +7,10 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(
-	defineProps<{
-		width?: string;
-		color?: string;
-	}>(),
-	{ width: 'w-12', color: 'bg-blue-600' }
-);
-
-const { width, color } = toRefs(props);
+const { width = 'w-12', color = 'bg-blue-600' } = defineProps<{
+	width?: string;
+	color?: string;
+}>();
 </script>
 
 <style scoped lang="scss">

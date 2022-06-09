@@ -19,11 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
-	backdropClass: string;
-}>();
-
-const { backdropClass } = toRefs(props);
+const { backdropClass } = defineProps<{ backdropClass: string }>();
 
 const emit = defineEmits<{
 	(event: 'close'): void;

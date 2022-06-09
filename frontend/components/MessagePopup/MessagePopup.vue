@@ -3,12 +3,12 @@
 		<form class="ui-border ui-fade p-4" form @submit.prevent="submit">
 			<label for="template">
 				<span>Template</span>
-				<TemplateSelector name="template" v-model="form.template" />
+				<MessagePopupTemplateSelector name="template" v-model="form.template" />
 			</label>
 
 			<label for="word">
 				<span>Word</span>
-				<WordSelector v-model="form.word" />
+				<MessagePopupWordSelector v-model="form.word" />
 			</label>
 
 			<button primary btn>Send</button>
@@ -18,8 +18,6 @@
 
 <script setup lang="ts">
 import Modal from '~~/components/Modal.vue';
-import WordSelector from './WordSelector.vue';
-import TemplateSelector from './TemplateSelector.vue';
 
 const { chatId } = defineProps<{ chatId: string }>();
 

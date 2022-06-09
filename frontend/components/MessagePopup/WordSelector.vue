@@ -62,13 +62,7 @@ interface SearchResult {
 	[key: string]: string[];
 }
 
-const props = withDefaults(
-	defineProps<{
-		modelValue?: string;
-	}>(),
-	{ modelValue: '' }
-);
-const { modelValue } = toRefs(props);
+const { modelValue = '' } = defineProps<{ modelValue?: string }>();
 
 const modal = ref<InstanceType<typeof Modal> | null>(null);
 
@@ -82,7 +76,6 @@ const emit = defineEmits<{
 
 const selectWord = (word: string) => {
 	emit('update:modelValue', word);
-	modelValue.modelValue = word;
 	modal.value?.close();
 };
 

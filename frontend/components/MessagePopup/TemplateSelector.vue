@@ -9,15 +9,13 @@
 <script setup lang="ts">
 import { templates as templatesList } from '~~/composables/messages';
 
-const props = defineProps<{
-	name: string;
-}>();
+const { name } = defineProps<{ name: string }>();
 
 const emit = defineEmits<{
 	(event: 'update:modelValue', value: string): void;
 }>();
 
-const onChange = (result: string) => {
-	emit('update:modelValue', result.target.value);
+const onChange = (result: Event) => {
+	emit('update:modelValue', (result.target as HTMLSelectElement).value);
 };
 </script>
