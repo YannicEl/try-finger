@@ -5,7 +5,7 @@ main = ".output/server/index.mjs"
 bucket = ".output/public"
 
 [build]
-command = "npm run build"
+command = "pnpm run build"
 
 [env.dev]
 name = "try_finger_dev"

@@ -11,7 +11,7 @@
 				<WordSelector v-model="form.word" />
 			</label>
 
-			<button primary btn @click="sendMessage">Send</button>
+			<button primary btn>Send</button>
 		</form>
 	</Modal>
 </template>
