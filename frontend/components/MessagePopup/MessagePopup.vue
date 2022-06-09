@@ -11,18 +11,17 @@
 				<WordSelector v-model="form.word" />
 			</label>
 
-			<button primary btn @click="sendMessage">Send</button>
+			<button primary btn>Send</button>
 		</form>
 	</Modal>
 </template>
 
 <script setup lang="ts">
 import Modal from '~~/components/Modal.vue';
+import WordSelector from './WordSelector.vue';
+import TemplateSelector from './TemplateSelector.vue';
 
-const props = defineProps<{
-	chatId: string;
-}>();
-const { chatId } = toRefs(props);
+const { chatId } = defineProps<{ chatId: string }>();
 
 const modal = ref<InstanceType<typeof Modal> | null>(null);
 
@@ -43,7 +42,7 @@ const submit = () => {
 
 	if (!template || !word) return;
 
-	const dbMessage = useDbMessage(chatId.value);
+	const dbMessage = useDbMessage(chatId);
 
 	dbMessage.add({
 		message: replaceTemplate(template, word),

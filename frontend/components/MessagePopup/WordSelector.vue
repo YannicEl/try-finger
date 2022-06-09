@@ -66,7 +66,7 @@ const props = withDefaults(
 	defineProps<{
 		modelValue?: string;
 	}>(),
-	{ modelValue: null }
+	{ modelValue: '' }
 );
 const { modelValue } = toRefs(props);
 

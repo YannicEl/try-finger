@@ -49,6 +49,10 @@ export default defineNuxtConfig({
 		],
 	},
 
+	experimental: {
+		reactivityTransform: true,
+	},
+
 	nitro: {
 		preset: 'cloudflare',
 	},
