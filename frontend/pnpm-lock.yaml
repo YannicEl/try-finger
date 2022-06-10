@@ -11,7 +11,7 @@ specifiers:
   pinia: ^2.0.14
   prettier: ^2.6.2
   sass: ^1.52.3
-  wrangler: ^2.0.8
+  wrangler: ^2.0.9
 
 dependencies:
   '@pinia/nuxt': 0.1.9_pinia@2.0.14
@@ -26,7 +26,7 @@ devDependencies:
   nuxt-windicss: 2.4.2
   prettier: 2.6.2
   sass: 1.52.3
-  wrangler: 2.0.8
+  wrangler: 2.0.9
 
 packages:
 
@@ -463,6 +463,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -473,6 +476,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -558,6 +564,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -767,6 +776,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -5715,7 +5727,7 @@ packages:
     dev: true
 
   /stack-trace/0.0.10:
-    resolution: {integrity: sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=}
+    resolution: {integrity: sha512-KGzahc7puUKkzyMt+IqAep+TVNbKP+k2Lmwhub39m1AsTSkaDutx56aDCo+HLDzf/D26BIHTJWNiTG1KAJiQCg==}
     dev: true
 
   /standard-as-callback/2.1.0:
@@ -6518,8 +6530,8 @@ packages:
     hasBin: true
     dev: true
 
-  /wrangler/2.0.8:
-    resolution: {integrity: sha512-htum4L3ikiuATiU7YsmCnEF68PtTlov2LSymZPA2S/JNjiUhwcePnDRzT/ajOqiR5cd7kxf3u+0ykc/ZdD1rbg==}
+  /wrangler/2.0.9:
+    resolution: {integrity: sha512-qRmjOHQKUaylxQFjVt0IniY5tu/KFi4BWwSm7C33Lr7oQNSC/ANUn9K8wJew9DtrnTw7arhhK1qbGAxB/IEo+w==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:
