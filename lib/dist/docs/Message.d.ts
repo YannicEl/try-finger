@@ -1,4 +1,4 @@
-import { BaseDoc, SubCollection } from './BaseDoc';
+import { BaseDoc, SubCollection } from './BaseDoc.js';
 export interface Message extends BaseDoc, SubCollection {
     parentCol: 'chats';
     sender: string;

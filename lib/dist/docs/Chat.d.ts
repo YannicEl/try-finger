@@ -1,4 +1,4 @@
-import { BaseDoc, RootCollection } from './BaseDoc';
+import { BaseDoc, RootCollection } from './BaseDoc.js';
 export interface Chat extends BaseDoc, RootCollection {
     name: string;
     creator: string;

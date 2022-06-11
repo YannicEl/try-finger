@@ -9,7 +9,6 @@ specifiers:
   nuxt: 3.0.0-rc.3
   nuxt-windicss: ^2.4.2
   pinia: ^2.0.14
-  prettier: ^2.6.2
   sass: ^1.52.3
   wrangler: ^2.0.9
 
@@ -24,7 +23,6 @@ devDependencies:
   '@unocss/nuxt': 0.38.2
   nuxt: 3.0.0-rc.3_sass@1.52.3
   nuxt-windicss: 2.4.2
-  prettier: 2.6.2
   sass: 1.52.3
   wrangler: 2.0.9
 
@@ -463,9 +461,6 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
-    peerDependenciesMeta:
-      '@firebase/app-types':
-        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -476,9 +471,6 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
-    peerDependenciesMeta:
-      '@firebase/app-types':
-        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -564,9 +556,6 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
-    peerDependenciesMeta:
-      '@firebase/app-types':
-        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -776,9 +765,6 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
-    peerDependenciesMeta:
-      '@firebase/app-types':
-        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.1
@@ -5220,12 +5206,6 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
-
-  /prettier/2.6.2:
-    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
     dev: true
 
   /pretty-bytes/6.0.0:

@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-const chatMember = ref<{ uid: string; name: string } | null>(null);
+const chatMember = ref<{ uid: string; name: string }>({ uid: '', name: '' });
 
 const form = ref<{
 	chatName: string;

@@ -1,5 +1,9 @@
 import { Document } from '@try-finger/lib';
-import { DocumentData, QueryDocumentSnapshot } from 'firebase-admin/firestore';
+import {
+	DocumentData,
+	FieldValue,
+	QueryDocumentSnapshot,
+} from 'firebase-admin/firestore';
 
 export const snapshotToData = <T extends Document>(
 	snapshot: QueryDocumentSnapshot<DocumentData>
@@ -15,3 +19,5 @@ export const snapshotToData = <T extends Document>(
 		updatedAt: updatedAt.toDate(),
 	} as T;
 };
+
+export const { arrayUnion, arrayRemove, increment, serverTimestamp } = FieldValue;

@@ -9,8 +9,7 @@ import {
 } from 'firebase-admin/firestore';
 import { Document, AddDoc, UpdateDoc } from '@try-finger/lib';
 import { useFirebase } from './useFirebase.js';
-import { serverTimestamp } from '../helpers/fieldValues.js';
-import { snapshotToData } from '../helpers/firestore.js';
+import { serverTimestamp, snapshotToData } from '../helpers/firestore.js';
 
 export const useFirestore = <T extends Document>(path: string) => {
 	const converter: FirestoreDataConverter<T> = {

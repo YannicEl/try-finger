@@ -1,34 +1,26 @@
-import { CallableRequest, HttpsError } from 'firebase-functions/v2/https';
-import { logger } from 'firebase-functions/v1';
+import { Schema } from 'ajv/dist/jtd.js';
+import { CallableRequest, onCall } from 'firebase-functions/v2/https';
+import { EnvVars, getEnvVars, Secret, Secrets } from './environment.js';
+import { validateData } from './inputValidation.js';
 
-import Ajv, { ValidateFunction } from 'ajv/dist/jtd.js';
-const ajv = new Ajv();
+interface HandlerOptions {
+	schema?: Schema;
+	secrets?: Secret[];
+}
 
-const cache = new Map<string, ValidateFunction>();
-
-const getValidateFn = (key: string, schema: any): ValidateFunction => {
-	if (!cache.has(key)) {
-		const validate = ajv.compile(schema);
-		cache.set(key, validate);
-		return validate;
-	}
-
-	return cache.get(key)!;
-};
+interface HandlerContext {
+	env: EnvVars & Secrets;
+}
 
 export const defineHandler = <T = any, Return = any | Promise<any>>(
-	schema: any,
-	handler: (request: CallableRequest<T>) => Return
+	{ schema, secrets = [] }: HandlerOptions,
+	handler: (request: CallableRequest<T>, ctx: HandlerContext) => Return
 ) => {
-	return (request: CallableRequest<T>) => {
-		const validate = getValidateFn(request.rawRequest.hostname, schema);
+	return onCall({ region: 'europe-west1', secrets }, (request: CallableRequest<T>) => {
+		if (schema) validateData(request.rawRequest.hostname, schema, request.data);
 
-		if (!validate(request.data)) {
-			logger.error('Function body not valid');
-			logger.error(validate.errors);
-			throw new HttpsError('internal', 'Internal Server Error');
-		}
+		const env = getEnvVars(secrets);
 
-		return handler(request);
-	};
+		return handler(request, { env });
+	});
 };

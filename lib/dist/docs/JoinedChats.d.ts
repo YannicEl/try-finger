@@ -1,4 +1,4 @@
-import { BaseDoc, SubCollection } from './BaseDoc';
+import { BaseDoc, SubCollection } from './BaseDoc.js';
 export interface JoinedChats extends BaseDoc, SubCollection {
     parentCol: 'users';
     name: string;

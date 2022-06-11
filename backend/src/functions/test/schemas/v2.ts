@@ -9,4 +9,4 @@ export const schema = {
 	},
 } as const;
 
-export type V2 = JTDDataType<typeof schema>;
+export type Data = JTDDataType<typeof schema>;
