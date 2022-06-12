@@ -1,6 +1,5 @@
 import Ajv, { Schema, ValidateFunction } from 'ajv/dist/jtd.js';
-import { logger } from 'firebase-functions/v2';
-import { HttpsError } from 'firebase-functions/v2/https';
+import { logger } from 'firebase-functions';
 
 const ajv = new (Ajv as any)();
 
@@ -20,8 +19,7 @@ export const validateData = (key: string, schema: Schema, data: any) => {
 	const validate = getValidateFn(key, schema);
 
 	if (!validate(data)) {
-		logger.error('Function body not valid');
 		logger.error(validate.errors);
-		throw new HttpsError('internal', 'Internal Server Error');
+		throw 'Function body not valid';
 	}
 };

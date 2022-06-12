@@ -17,7 +17,7 @@ export const getEnvVars = (secrets: Secret[]) => {
 export const getEnvVar = (name: EnvVar | Secret): string => {
 	const ret = process.env[name];
 
-	if (!ret) throw new Error(`Environment variable "${name}" not found`);
+	if (!ret) throw `Environment variable "${name}" not found`;
 
 	return ret;
 };

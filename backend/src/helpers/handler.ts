@@ -1,5 +1,6 @@
 import { Schema } from 'ajv/dist/jtd.js';
-import { CallableRequest, onCall } from 'firebase-functions/v2/https';
+import { logger } from 'firebase-functions';
+import { CallableRequest, HttpsError, onCall } from 'firebase-functions/v2/https';
 import { EnvVars, getEnvVars, Secret, Secrets } from './environment.js';
 import { validateData } from './inputValidation.js';
 
@@ -17,10 +18,15 @@ export const defineHandler = <T = any, Return = any | Promise<any>>(
 	handler: (request: CallableRequest<T>, ctx: HandlerContext) => Return
 ) => {
 	return onCall({ region: 'europe-west1', secrets }, (request: CallableRequest<T>) => {
-		if (schema) validateData(request.rawRequest.hostname, schema, request.data);
+		try {
+			if (schema) validateData(request.rawRequest.hostname, schema, request.data);
 
-		const env = getEnvVars(secrets);
+			const env = getEnvVars(secrets);
 
-		return handler(request, { env });
+			return handler(request, { env });
+		} catch (err) {
+			logger.error(err);
+			throw new HttpsError('internal', 'Internal Server Error');
+		}
 	});
 };
