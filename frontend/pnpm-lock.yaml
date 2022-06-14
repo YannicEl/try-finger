@@ -10,7 +10,7 @@ specifiers:
   nuxt-windicss: ^2.4.2
   pinia: ^2.0.14
   sass: ^1.52.3
-  wrangler: ^2.0.11
+  wrangler: ^2.0.12
 
 dependencies:
   '@pinia/nuxt': 0.1.9_pinia@2.0.14
@@ -24,7 +24,7 @@ devDependencies:
   nuxt: 3.0.0-rc.4_sass@1.52.3
   nuxt-windicss: 2.4.2
   sass: 1.52.3
-  wrangler: 2.0.11
+  wrangler: 2.0.12
 
 packages:
 
@@ -6664,11 +6664,12 @@ packages:
     hasBin: true
     dev: true
 
-  /wrangler/2.0.11:
-    resolution: {integrity: sha512-wRofP6GvpzZxCmqG1sLpdkHLFIv95oiv8KXyoO1eYGZ7izIhnfEt1kMPA9WguBgojDCw0+9xebhp/rOp8lYBtA==}
+  /wrangler/2.0.12:
+    resolution: {integrity: sha512-Dnzqxl3vW5J16Lt3gEbl/teNnTuAqMwsuMexR7BFSHWTwfWjHT9Sc7B6bPIKw0O01zDU/hUscw8nkyhMMM3xDw==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:
+      '@cloudflare/kv-asset-handler': 0.2.0
       '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.14.34
       '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.14.34
       blake3-wasm: 2.1.5
