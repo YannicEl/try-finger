@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 
 	modules: [],
 
-	buildModules: ['nuxt-windicss', '@unocss/nuxt', '@vueuse/nuxt', '@pinia/nuxt'],
+	buildModules: ['nuxt-windicss', '@vueuse/nuxt', '@pinia/nuxt'],
 
 	runtimeConfig: {
 		public: {
@@ -22,12 +22,6 @@ export default defineNuxtConfig({
 				appId: process.env.NUXT_FIREBASE_APP_ID,
 			},
 		},
-	},
-
-	unocss: {
-		uno: false,
-		icons: true,
-		preflight: false,
 	},
 
 	meta: {
