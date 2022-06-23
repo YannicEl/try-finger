@@ -17,7 +17,7 @@
 		"@pinia/nuxt": "^0.1.9",
 		"@try-finger/lib": "workspace:*",
 		"@vueuse/nuxt": "^8.7.5",
-		"firebase": "^9.8.3",
+		"firebase": "^9.8.4",
 		"pinia": "^2.0.14"
 	},
 	"pnpm": {
