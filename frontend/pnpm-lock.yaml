@@ -450,6 +450,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.2
@@ -460,6 +463,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.2
@@ -545,6 +551,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.2
@@ -754,6 +763,9 @@ packages:
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 1.x
+    peerDependenciesMeta:
+      '@firebase/app-types':
+        optional: true
     dependencies:
       '@firebase/app-types': 0.7.0
       '@firebase/util': 1.6.2

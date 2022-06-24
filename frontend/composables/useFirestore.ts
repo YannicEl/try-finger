@@ -1,26 +1,26 @@
+import { AddDoc, Document, UpdateDoc } from '@try-finger/lib';
 import {
-	getFirestore,
-	addDoc,
-	collection as _collection,
-	DocumentReference,
-	serverTimestamp,
-	getDoc,
-	doc,
-	onSnapshot,
-	getDocs,
-	setDoc,
-	QueryConstraint,
-	query,
-	QueryDocumentSnapshot,
-	WithFieldValue,
-	FirestoreDataConverter,
-	DocumentData,
-	updateDoc,
-	UpdateData,
-	Unsubscribe,
+  addDoc,
+  collection as _collection,
+  doc,
+  DocumentData,
+  DocumentReference,
+  FirestoreDataConverter,
+  getDoc,
+  getDocs,
+  getFirestore,
+  onSnapshot,
+  query,
+  QueryConstraint,
+  QueryDocumentSnapshot,
+  serverTimestamp,
+  setDoc,
+  Unsubscribe,
+  UpdateData,
+  updateDoc,
+  WithFieldValue
 } from 'firebase/firestore';
 import { Ref } from 'vue';
-import { Document, AddDoc, UpdateDoc } from '@try-finger/lib';
 
 export type Collections =
 	| 'chats'
