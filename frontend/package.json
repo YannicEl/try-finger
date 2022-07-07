@@ -16,7 +16,7 @@
 	"dependencies": {
 		"@pinia/nuxt": "^0.1.9",
 		"@try-finger/lib": "workspace:*",
-		"@vueuse/nuxt": "^8.8.0",
+		"@vueuse/nuxt": "^8.9.0",
 		"firebase": "^9.8.4",
 		"pinia": "^2.0.14"
 	},
