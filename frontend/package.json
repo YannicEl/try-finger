@@ -14,11 +14,11 @@
 		"wrangler": "^2.0.16"
 	},
 	"dependencies": {
-		"@pinia/nuxt": "^0.1.9",
+		"@pinia/nuxt": "^0.2.0",
 		"@try-finger/lib": "workspace:*",
 		"@vueuse/nuxt": "^8.9.1",
 		"firebase": "^9.9.0",
-		"pinia": "^2.0.14"
+		"pinia": "^2.0.15"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
