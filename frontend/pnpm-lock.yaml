@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@pinia/nuxt': ^0.2.1
+  '@pinia/nuxt': ^0.3.0
   '@try-finger/lib': workspace:*
   '@vueuse/nuxt': ^8.9.2
   firebase: ^9.9.0
@@ -9,10 +9,10 @@ specifiers:
   nuxt-windicss: ^2.4.3
   pinia: ^2.0.16
   sass: ^1.53.0
-  wrangler: ^2.0.18
+  wrangler: ^2.0.19
 
 dependencies:
-  '@pinia/nuxt': 0.2.1_pinia@2.0.16
+  '@pinia/nuxt': 0.3.0
   '@try-finger/lib': link:../lib
   '@vueuse/nuxt': 8.9.2
   firebase: 9.9.0
@@ -22,7 +22,7 @@ devDependencies:
   nuxt: 3.0.0-rc.4_sass@1.53.0
   nuxt-windicss: 2.4.3
   sass: 1.53.0
-  wrangler: 2.0.18
+  wrangler: 2.0.19
 
 packages:
 
@@ -1287,16 +1287,20 @@ packages:
       - webpack
     dev: true
 
-  /@pinia/nuxt/0.2.1_pinia@2.0.16:
-    resolution: {integrity: sha512-XPsuClG2ag/zSdSDqU8FRkTxwWKVZTYD6TVTzjMon3l9QZKC9YvW+jdZWasQilLCnU+jWpmhx41YpfIoPSwMbg==}
-    peerDependencies:
-      pinia: '>=2.0.16'
+  /@pinia/nuxt/0.3.0:
+    resolution: {integrity: sha512-x/T8GAfpLAF/a5I06frgl7Aj+X9Ld3fvBhQ6xtinHsXivbrUSL1UNJof8JKEAZBwKX33CoCyeGWbXfOtpyODug==}
     dependencies:
+      '@nuxt/kit': 3.0.0-rc.4
       pinia: 2.0.16
-      vue-demi: 0.13.1
     transitivePeerDependencies:
       - '@vue/composition-api'
+      - esbuild
+      - rollup
+      - supports-color
+      - typescript
+      - vite
       - vue
+      - webpack
     dev: false
 
   /@polka/url/1.0.0-next.21:
@@ -6112,8 +6116,8 @@ packages:
     hasBin: true
     dev: true
 
-  /wrangler/2.0.18:
-    resolution: {integrity: sha512-BkKoYBjGLKbng9SEsDLjcEH8X0cDuI5mWG9ih6pGO5t7xnvlzcny3r/XhgpCE8UWv+uYM6kd3CqO5JhQf38ZeA==}
+  /wrangler/2.0.19:
+    resolution: {integrity: sha512-ltZtxLSzuvY0xeEvN6nH9epfi0sUn9iy3dUl9P9y/nQIygWp+rIFpzsRGMx8DWykimUyEelMGonYLTawTjv1PQ==}
     engines: {node: '>=16.7.0'}
     hasBin: true
     dependencies:
@@ -6126,7 +6130,6 @@ packages:
       nanoid: 3.3.4
       path-to-regexp: 6.2.1
       selfsigned: 2.0.1
-      semiver: 1.1.0
       xxhash-wasm: 1.0.1
     optionalDependencies:
       fsevents: 2.3.2
