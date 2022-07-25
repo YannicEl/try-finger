@@ -1,22 +1,22 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@pinia/nuxt': ^0.3.0
+  '@pinia/nuxt': ^0.3.1
   '@try-finger/lib': workspace:*
   '@vueuse/nuxt': ^8.9.4
   firebase: ^9.9.1
   nuxt: 3.0.0-rc.6
   nuxt-windicss: ^2.4.3
-  pinia: ^2.0.16
+  pinia: ^2.0.17
   sass: ^1.54.0
   wrangler: ^2.0.23
 
 dependencies:
-  '@pinia/nuxt': 0.3.0
+  '@pinia/nuxt': 0.3.1
   '@try-finger/lib': link:../lib
   '@vueuse/nuxt': 8.9.4
   firebase: 9.9.1
-  pinia: 2.0.16
+  pinia: 2.0.17
 
 devDependencies:
   nuxt: 3.0.0-rc.6_sass@1.54.0
@@ -1132,6 +1132,7 @@ packages:
       - supports-color
       - vite
       - webpack
+    dev: true
 
   /@nuxt/kit/3.0.0-rc.5:
     resolution: {integrity: sha512-PmRfy0AdpvYne5p1/QWXOFoJawnjC/p2TkEJeCgI7MMHP7U2ru/7MxM7x0+ScjD13fUd4KSv1bCMJRTCoaCzPQ==}
@@ -1191,7 +1192,6 @@ packages:
       - supports-color
       - vite
       - webpack
-    dev: true
 
   /@nuxt/kit/3.0.0-rc.6_34lyoy2px4mwvanejqhdojvpg4:
     resolution: {integrity: sha512-+lxSd6dSWlAzMXfGOPcY4856xnMF1Ck1rycFUZ+K2QYiDXphq/fiW2eMaWLVvqgPyL2Box2WzVDZJ6C5ceptcw==}
@@ -1349,11 +1349,11 @@ packages:
       - webpack
     dev: true
 
-  /@pinia/nuxt/0.3.0:
-    resolution: {integrity: sha512-x/T8GAfpLAF/a5I06frgl7Aj+X9Ld3fvBhQ6xtinHsXivbrUSL1UNJof8JKEAZBwKX33CoCyeGWbXfOtpyODug==}
+  /@pinia/nuxt/0.3.1:
+    resolution: {integrity: sha512-JoDvTolUrJPfe9xEmvHz0jRqd3vYzuStqtt1k3SgwHChIWxxnlZ8hmU1RlXIh51RGL549LeXupSiKGydDIYc2A==}
     dependencies:
-      '@nuxt/kit': 3.0.0-rc.4
-      pinia: 2.0.16
+      '@nuxt/kit': 3.0.0-rc.6
+      pinia: 2.0.17
     transitivePeerDependencies:
       - '@vue/composition-api'
       - esbuild
@@ -1669,8 +1669,8 @@ packages:
       '@vue/shared': 3.2.37
     dev: true
 
-  /@vue/devtools-api/6.1.4:
-    resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==}
+  /@vue/devtools-api/6.2.1:
+    resolution: {integrity: sha512-OEgAMeQXvCoJ+1x8WyQuVZzFo0wcyCmUR3baRVLmKBo1LmYZWMlRiXlux5jd0fqVJu6PfDbOrZItVqUEzLobeQ==}
 
   /@vue/reactivity-transform/3.2.37:
     resolution: {integrity: sha512-IWopkKEb+8qpu/1eMKVeXrK0NLw9HicGviJzhJDEyfxTR9e1WtpnnbYkJWurX6WwoFP0sz10xQg8yL8lgskAZg==}
@@ -4556,8 +4556,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /pinia/2.0.16:
-    resolution: {integrity: sha512-9/LMVO+/epny1NBfC77vnps4g3JRezxhhoF1xLUk8mZkUIxVnwfEAIRiAX8mYBTD/KCwZqnDMqXc8w3eU0FQGg==}
+  /pinia/2.0.17:
+    resolution: {integrity: sha512-AtwLwEWQgIjofjgeFT+nxbnK5lT2QwQjaHNEDqpsi2AiCwf/NY78uWTeHUyEhiiJy8+sBmw0ujgQMoQbWiZDfA==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
@@ -4570,7 +4570,7 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@vue/devtools-api': 6.1.4
+      '@vue/devtools-api': 6.2.1
       vue-demi: 0.13.1
     dev: false
 
@@ -5704,6 +5704,7 @@ packages:
       - rollup
       - vite
       - webpack
+    dev: true
 
   /unimport/0.4.5:
     resolution: {integrity: sha512-DnmiSt/HQIfhdcxOy4CGqwZDBh3WHg33euX1ge4X8hvquKBmw2PFvhoAJaBKxscOz0oYosoPoPT4tkDZWHhV0Q==}
@@ -6104,7 +6105,7 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@vue/devtools-api': 6.1.4
+      '@vue/devtools-api': 6.2.1
       vue: 3.2.37
     dev: true
 
