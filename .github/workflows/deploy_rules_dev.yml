@@ -46,7 +46,7 @@ jobs:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
 
       - name: Deploy Rules
-        uses: w9jds/firebase-action@v2.2.2
+        uses: w9jds/firebase-action@v11.5.0
         with:
           args: deploy --only storage,firestore --project dev
         env:
