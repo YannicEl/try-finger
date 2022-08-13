@@ -1,15 +1,15 @@
+import { AddDoc, Document, UpdateDoc } from '@try-finger/lib';
 import {
-	DocumentData,
-	DocumentReference,
-	FirestoreDataConverter,
-	getFirestore,
-	WriteResult,
-	Query,
-	Transaction,
+  DocumentData,
+  DocumentReference,
+  FirestoreDataConverter,
+  getFirestore,
+  Query,
+  Transaction,
+  WriteResult
 } from 'firebase-admin/firestore';
-import { Document, AddDoc, UpdateDoc } from '@try-finger/lib';
-import { useFirebase } from './useFirebase.js';
 import { serverTimestamp, snapshotToData } from '../helpers/firestore.js';
+import { useFirebase } from './useFirebase.js';
 
 export const useFirestore = <T extends Document>(path: string) => {
 	const converter: FirestoreDataConverter<T> = {
@@ -60,14 +60,14 @@ export const useFirestore = <T extends Document>(path: string) => {
 	 * Update a document
 	 */
 	const update = (id: string, body: UpdateDoc<T>): Promise<WriteResult> => {
-		return collection.doc(id).update(body);
+		return collection.doc(id).update(body as any);
 	};
 
 	/**
 	 * Same as update() but for use in a Transaction
 	 */
 	const updateT = (id: string, body: UpdateDoc<T>, t: Transaction): void => {
-		t.update(collection.doc(id), body);
+		t.update(collection.doc(id), body as any);
 	};
 
 	/**
