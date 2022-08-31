@@ -9,16 +9,16 @@
 	},
 	"devDependencies": {
 		"nuxt": "3.0.0-rc.8",
-		"nuxt-windicss": "^2.5.0",
-		"sass": "^1.54.5",
-		"wrangler": "^2.0.27"
+		"nuxt-windicss": "^2.5.1",
+		"sass": "^1.54.7",
+		"wrangler": "^2.0.28"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^0.4.1",
 		"@try-finger/lib": "workspace:*",
-		"@vueuse/nuxt": "^9.1.0",
+		"@vueuse/nuxt": "^9.1.1",
 		"firebase": "^9.9.3",
-		"pinia": "^2.0.20"
+		"pinia": "^2.0.21"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
