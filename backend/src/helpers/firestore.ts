@@ -1,8 +1,8 @@
 import { Document } from '@try-finger/lib';
 import {
-	DocumentData,
-	FieldValue,
-	QueryDocumentSnapshot,
+  DocumentData,
+  FieldValue,
+  QueryDocumentSnapshot
 } from 'firebase-admin/firestore';
 
 export const snapshotToData = <T extends Document>(
