@@ -10,7 +10,7 @@
 	"devDependencies": {
 		"nuxt": "3.0.0-rc.8",
 		"nuxt-windicss": "^2.5.1",
-		"sass": "^1.54.7",
+		"sass": "^1.54.8",
 		"wrangler": "^2.0.28"
 	},
 	"dependencies": {
