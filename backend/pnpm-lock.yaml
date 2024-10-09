@@ -7,7 +7,7 @@ specifiers:
   firebase-admin: ^11.0.1
   firebase-functions: 3.23.0
   firebase-tools: 11.8.0
-  typescript: 4.8.2
+  typescript: 5.6.3
 
 dependencies:
   ajv: 8.11.0
@@ -18,7 +18,7 @@ dependencies:
 devDependencies:
   '@try-finger/lib': file:../lib
   firebase-tools: 11.8.0
-  typescript: 4.8.2
+  typescript: 5.6.3
 
 packages:
 
@@ -4371,9 +4371,9 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typescript/4.8.2:
-    resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
-    engines: {node: '>=4.2.0'}
+  /typescript/5.6.3:
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+    engines: {node: '>=14.17'}
     hasBin: true
     dev: true
 
