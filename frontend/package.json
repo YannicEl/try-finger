@@ -8,17 +8,17 @@
 		"deploy:prod": "wrangler publish --env prod"
 	},
 	"devDependencies": {
-		"nuxt": "3.0.0-rc.9",
-		"nuxt-windicss": "^2.5.1",
-		"sass": "^1.54.8",
-		"wrangler": "^2.0.28"
+		"nuxt": "3.13.2",
+		"nuxt-windicss": "^2.6.1",
+		"sass": "^1.80.4",
+		"wrangler": "^2.21.2"
 	},
 	"dependencies": {
-		"@pinia/nuxt": "^0.4.1",
+		"@pinia/nuxt": "^0.5.5",
 		"@try-finger/lib": "workspace:*",
-		"@vueuse/nuxt": "^9.1.1",
-		"firebase": "^9.9.4",
-		"pinia": "^2.0.21"
+		"@vueuse/nuxt": "^9.13.0",
+		"firebase": "^9.23.0",
+		"pinia": "^2.2.4"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
