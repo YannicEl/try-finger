@@ -18,7 +18,7 @@
 		"@try-finger/lib": "workspace:*",
 		"@vueuse/nuxt": "^9.1.1",
 		"firebase": "^9.9.4",
-		"pinia": "^2.0.21"
+		"pinia": "^3.0.4"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
